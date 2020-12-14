@@ -1,10 +1,18 @@
 import { NestFactory } from '@nestjs/core';
 import { NestExpressApplication } from '@nestjs/platform-express';
 import { createEngine } from 'express-react-views';
+import * as helmet from 'helmet';
 import { AppModule } from './app.module';
 
 async function bootstrap() {
   const app = await NestFactory.create<NestExpressApplication>(AppModule);
+
+  /* 
+    Supporting (Helmet)
+      Helmet helps you secure your app by setting various HTTP headers. 
+  */
+
+  app.use(helmet());
 
   /* 
     Supporting (CORS)
