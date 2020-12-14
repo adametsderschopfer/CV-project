@@ -1,8 +1,10 @@
 import { NestFactory } from '@nestjs/core';
+import { NestExpressApplication } from '@nestjs/platform-express';
+import { createEngine } from 'express-react-views';
 import { AppModule } from './app.module';
 
 async function bootstrap() {
-  const app = await NestFactory.create(AppModule);
+  const app = await NestFactory.create<NestExpressApplication>(AppModule);
 
   /* 
     Supporting (CORS)
@@ -21,6 +23,15 @@ async function bootstrap() {
     methods: 'GET,HEAD,OPTIONS,PUT,PATCH,POST,DELETE',
     preflightContinue: false,
   });
+
+  /* 
+    Supporting (REACT VIEWS -> SSR)
+      package -> express-react-views, react, react-dom
+  */
+
+  app.set('views', __dirname + '/views');
+  app.set('view engine', 'jsx');
+  app.engine('jsx', createEngine());
 
   /* 
     App Listening
