@@ -2,6 +2,7 @@ import { NestFactory } from '@nestjs/core';
 import { NestExpressApplication } from '@nestjs/platform-express';
 import { createEngine } from 'express-react-views';
 import * as helmet from 'helmet';
+import * as compression from 'compression';
 import { AppModule } from './app.module';
 
 async function bootstrap() {
@@ -31,6 +32,13 @@ async function bootstrap() {
     methods: 'GET,HEAD,OPTIONS,PUT,PATCH,POST,DELETE',
     preflightContinue: false,
   });
+
+  /* 
+    Supporting (compression)
+      Compression can greatly decrease the size of the response body, thereby increasing the speed of a web app.
+  */
+
+  app.use(compression());
 
   /* 
     Supporting (REACT VIEWS -> SSR)
