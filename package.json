@@ -1,0 +1,15 @@
+{
+  "name": "cv",
+  "version": "1.0.0",
+  "scripts": {
+    "start:frontend": "npm run start --prefix ./frontend",
+    "test:frontend": "npm run test --prefix ./frontend",
+    "build:frontend": "npm run build --prefix ./frontend",
+    "start:backend": "npm run start:dev --prefix ./backend",
+    "build:backend": "npm run build --prefix ./backend",
+    "test:backend": "npm run test --prefix ./backend"
+  },
+  "dependencies": {
+    "concurrently": "^5.3.0"
+  }
+}
