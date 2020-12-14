@@ -10,6 +10,11 @@
     "sourceMap": true,
     "outDir": "./dist",
     "baseUrl": "./",
-    "incremental": true
-  }
+    "incremental": true,
+    "jsx": "react"
+  },
+  "exclude": [
+    "node_modules",
+    "dist"
+  ]
 }

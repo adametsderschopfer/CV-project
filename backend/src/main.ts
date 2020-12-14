@@ -1,6 +1,7 @@
 import { NestFactory } from '@nestjs/core';
 import { NestExpressApplication } from '@nestjs/platform-express';
 import { createEngine } from 'express-react-views';
+import * as path from 'path';
 import * as helmet from 'helmet';
 import * as compression from 'compression';
 import { AppModule } from './app.module';
@@ -45,9 +46,9 @@ async function bootstrap() {
       package -> express-react-views, react, react-dom
   */
 
-  app.set('views', __dirname + '/views');
-  app.set('view engine', 'jsx');
-  app.engine('jsx', createEngine());
+  app.setBaseViewsDir(path.join(__dirname, 'views'));
+  app.set('view engine', 'js');
+  app.engine('js', createEngine({ transformViews: false }));
 
   /* 
     App Listening
