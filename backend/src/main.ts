@@ -4,6 +4,7 @@ import { createEngine } from 'express-react-views';
 import * as path from 'path';
 import * as helmet from 'helmet';
 import * as compression from 'compression';
+import * as flash from 'flash';
 import { AppModule } from './app.module';
 
 async function bootstrap() {
@@ -40,6 +41,13 @@ async function bootstrap() {
   */
 
   app.use(compression());
+
+  /* 
+    Supporting (Flash)
+      flash
+  */
+
+  app.use(flash());
 
   /* 
     Supporting (REACT VIEWS -> SSR)
