@@ -16,7 +16,7 @@ async function bootstrap() {
       Helmet helps you secure your app by setting various HTTP headers. 
   */
 
-  app.use(helmet());
+  app.use(helmet({ contentSecurityPolicy: false }));
 
   /* 
     Supporting (CORS)
