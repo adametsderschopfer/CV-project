@@ -5,6 +5,7 @@ import * as path from 'path';
 import * as helmet from 'helmet';
 import * as compression from 'compression';
 import * as flash from 'flash';
+import * as session from 'express-session';
 import { AppModule } from './app.module';
 
 async function bootstrap() {
@@ -47,6 +48,9 @@ async function bootstrap() {
       flash
   */
 
+  app.use(
+    session({ secret: 'FOR_FLASH', resave: false, saveUninitialized: true }),
+  ); // USE FOR WORKING FLASH
   app.use(flash());
 
   /* 
