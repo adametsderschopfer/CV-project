@@ -28,6 +28,6 @@ export class AdminController {
   @UseGuards(AuthGuard)
   @UseFilters(AuthException)
   Main() {
-    return;
+    return { title: 'Main' };
   }
 }
