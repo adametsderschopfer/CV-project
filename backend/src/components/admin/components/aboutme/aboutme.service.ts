@@ -23,7 +23,19 @@ export class AboutMeService {
     };
   }
 
-  async edit(data: UpdateAboutmeDto): Promise<any> {
+  async edit({
+    work_exp,
+    projects_count,
+    content,
+  }: UpdateAboutmeDto): Promise<any> {
+    if (!content) {
+      throw 'Content is required';
+    }
+
+    await this._aboutme.update(
+      { id: 1 },
+      { work_exp, projects_count, content },
+    );
 
     return;
   }

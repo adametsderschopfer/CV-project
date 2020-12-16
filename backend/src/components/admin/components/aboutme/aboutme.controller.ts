@@ -2,7 +2,7 @@ import {
   Body,
   Controller,
   Get,
-  Patch,
+  Post,
   Redirect,
   Render,
   UseFilters,
@@ -26,6 +26,9 @@ export class AboutMeController {
     return this._aboutmeService.page();
   }
 
-  @Patch('/edit')
-  Edit() {}
+  @Post('/edit')
+  @Redirect('/admin/aboutme')
+  Edit(@Body() UpdatedData: UpdateAboutmeDto): Promise<any> {
+    return this._aboutmeService.edit(UpdatedData);
+  }
 }
