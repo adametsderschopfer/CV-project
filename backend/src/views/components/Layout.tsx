@@ -21,8 +21,9 @@ export default function Layout(props: React.PropsWithChildren<Props>) {
 
         <title>Admin panel{props.title ? ` - ${props.title}` : ''}</title>
       </head>
-      <body style={{ background: '#212121', fontFamily: 'Roboto', color: '#fff' }}>
-        {props.isAdmin ? <header></header> : null}
+      <body
+        style={{ background: '#212121', fontFamily: 'Roboto', color: '#fff' }}
+      >
         <main>
           <div className="container">{props.children}</div>
         </main>
