@@ -47,16 +47,6 @@ async function bootstrap() {
   app.use(compression());
 
   /* 
-    Supporting (Flash)
-      flash
-  */
-
-  app.use(
-    session({ secret: 'FOR_FLASH', resave: false, saveUninitialized: true }),
-  ); // USE FOR WORKING FLASH
-  app.use(flash());
-
-  /* 
     Supporting (REACT VIEWS -> SSR)
       package -> express-react-views, react, react-dom
   */
