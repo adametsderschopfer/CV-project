@@ -2,7 +2,7 @@ import * as React from 'react';
 import Layout from './components/Layout';
 import { Props } from './interfaces/index';
 
-function Login(props: React.PropsWithChildren<Props>) {
+function Login(props: Props) {
   return (
     <Layout title={props.title}>
       <hr className="mt-3 mb-3 " />
