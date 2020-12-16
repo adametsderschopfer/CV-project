@@ -2,7 +2,13 @@ import { Module } from '@nestjs/common';
 import { AdminService } from './admin.service';
 import { AdminController } from './admin.controller';
 import { TypeOrmModule } from '@nestjs/typeorm';
+
+/* 
+  Entities
+*/
+
 import { Admin_auth } from './models/admin_auth.entity';
+import { Aboutme } from './components/aboutme/models/Aboutme.entity';
 
 /* 
   Views
@@ -26,7 +32,7 @@ import { AboutMeController } from './components/aboutme/aboutme.controller';
 import { AboutMeService } from './components/aboutme/aboutme.service';
 
 @Module({
-  imports: [TypeOrmModule.forFeature([Admin_auth])],
+  imports: [TypeOrmModule.forFeature([Admin_auth, Aboutme])],
   providers: [
     AdminService,
     ContactsService,
