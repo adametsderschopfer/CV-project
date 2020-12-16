@@ -1,5 +1,10 @@
 import * as React from 'react';
+import Layout from './components/Layout';
 
 export default function Main() {
-  return <div>asd</div>;
+  return (
+    <Layout>
+      <div>Admin panel</div>
+    </Layout>
+  );
 }
