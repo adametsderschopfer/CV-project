@@ -6,10 +6,13 @@ import * as helmet from 'helmet';
 import * as compression from 'compression';
 import * as flash from 'flash';
 import * as session from 'express-session';
+import * as cookieParser from 'cookie-parser';
 import { AppModule } from './app.module';
 
 async function bootstrap() {
   const app = await NestFactory.create<NestExpressApplication>(AppModule);
+
+  app.useStaticAssets(path.join(__dirname, '..', 'public'));
 
   /* 
     Supporting (Helmet)
