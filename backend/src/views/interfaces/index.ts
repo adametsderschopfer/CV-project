@@ -4,3 +4,9 @@ export interface Props {
   isAdmin?: boolean;
   err?: string;
 }
+
+export interface HeadTitleProps {
+  title?: string;
+  margin?: 1 | 2 | 3;
+  el: 'h1' | 'h2' | 'h3';
+}
