@@ -51,7 +51,10 @@ async function bootstrap() {
       package -> express-react-views, react, react-dom
   */
 
-  app.setBaseViewsDir(path.join(__dirname, 'views'));
+  app.setBaseViewsDir([
+    path.join(__dirname, 'components', 'admin', 'views'),
+    path.join(__dirname, 'components', 'admin', 'views', 'contacts'),
+  ]);
   app.set('view engine', 'js');
   app.engine('js', createEngine({ transformViews: false }));
 

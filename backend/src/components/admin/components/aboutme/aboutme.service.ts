@@ -1,9 +1,9 @@
 import { Injectable } from '@nestjs/common';
 import { Repository } from 'typeorm';
 import { InjectRepository } from '@nestjs/typeorm';
-import { Aboutme } from './models/Aboutme.entity';
-import { UpdateAboutmeDto } from './dto/UpdateContent.dto';
-import { TitlePage } from './../../dto/TitlePage.dto';
+import { Aboutme } from '../../../../Models/Aboutme.entity';
+import { UpdateAboutmeDto } from '../../../../Dto/Aboutme/UpdateContent.dto';
+import { TitlePage } from '../../dto/TitlePage.dto';
 
 @Injectable()
 export class AboutMeService {

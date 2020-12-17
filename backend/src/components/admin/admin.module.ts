@@ -8,7 +8,8 @@ import { TypeOrmModule } from '@nestjs/typeorm';
 */
 
 import { Admin_auth } from './models/admin_auth.entity';
-import { Aboutme } from './components/aboutme/models/Aboutme.entity';
+import { Aboutme } from '../../Models/Aboutme.entity';
+import { ContactsEntity } from '../../Models/contacts.entity';
 
 /* 
   Views
@@ -32,7 +33,7 @@ import { AboutMeController } from './components/aboutme/aboutme.controller';
 import { AboutMeService } from './components/aboutme/aboutme.service';
 
 @Module({
-  imports: [TypeOrmModule.forFeature([Admin_auth, Aboutme])],
+  imports: [TypeOrmModule.forFeature([Admin_auth, Aboutme, ContactsEntity])],
   providers: [
     AdminService,
     ContactsService,
