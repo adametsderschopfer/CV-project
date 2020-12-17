@@ -49,3 +49,16 @@ textarea {
   justify-content: center;
   align-items: center;
 }
+
+.vertical_line {
+  width: 1px;
+  height: 30px;
+  background-color: #000;
+
+  margin: 0 10px;
+}
+
+.df {
+  display: flex;
+  align-items: center;
+}

@@ -1,28 +1,42 @@
 import {
   Controller,
-  Delete,
   Get,
-  Patch,
   Post,
   UseGuards,
   UseFilters,
+  Redirect,
+  Render,
+  Param,
+  Body,
 } from '@nestjs/common';
 import { AuthGuard } from './../../guards/Auth.guard';
 import { AuthException } from './../../exceptions/Auth.exception';
+import { TitlePage } from '../../dto/TitlePage.dto';
+import { ContactsDto } from './dto/Contacts.dto';
+import { ContactsService } from './contacts.service';
+import { ContactDto } from 'src/Dto/contactsDto/Contact.dto';
 
 @Controller('admin/contacts')
 @UseGuards(AuthGuard)
 @UseFilters(AuthException)
 export class ContactsController {
-  @Get('/')
-  Page() {}
+  constructor(private readonly _contactsService: ContactsService) {}
 
-  @Patch('/edit')
-  Edit() {}
+  @Get('/')
+  @Render('Contacts')
+  Page(): Promise<ContactsDto & TitlePage> {
+    return this._contactsService.pageList();
+  }
 
   @Post('/add')
-  Add() {}
+  @Redirect('/admin/contacts')
+  Add(@Body() contact: ContactDto): Promise<void> {
+    return this._contactsService.add(contact);
+  }
 
-  @Delete('/delete')
-  Delete() {}
+  @Get('/delete/:id')
+  @Redirect('/admin/contacts')
+  Delete(@Param('id') id: string): Promise<void> {
+    return this._contactsService.delete(id);
+  }
 }
