@@ -1,28 +1,40 @@
 import {
   Controller,
-  Delete,
   Post,
-  Patch,
   Get,
   UseGuards,
   UseFilters,
+  Render,
+  Param,
+  Body,
+  Redirect,
 } from '@nestjs/common';
 import { AuthGuard } from './../../guards/Auth.guard';
 import { AuthException } from './../../exceptions/Auth.exception';
+import { ReferencesService } from './references.service';
+import { ReferenceDto } from './../../../../Dto/References/Reference.dto';
 
 @Controller('admin/references')
 @UseGuards(AuthGuard)
 @UseFilters(AuthException)
 export class ReferencesController {
-  @Get('/')
-  Page() {}
+  constructor(private readonly _referencesService: ReferencesService) {}
 
-  @Patch('/edit')
-  Edit() {}
+  @Get('/')
+  @Render('References')
+  Page() {
+    return this._referencesService.page();
+  }
 
   @Post('/add')
-  Add() {}
+  @Redirect('/admin/references')
+  Add(@Body() reference: ReferenceDto): Promise<void> {
+    return this._referencesService.add(reference);
+  }
 
-  @Delete('/delete')
-  Delete() {}
+  @Get('/delete/:id')
+  @Redirect('/admin/references')
+  Delete(@Param('id') id: string): Promise<void> {
+    return this._referencesService.delete(id);
+  }
 }
