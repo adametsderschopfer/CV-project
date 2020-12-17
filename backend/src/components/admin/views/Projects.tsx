@@ -2,7 +2,7 @@ import * as React from 'react';
 import Layout from './components/Layout';
 import { Props } from './interfaces/index';
 import HeadTitle from './components/HeadTitle';
-import { ProjectDto } from './../../../Dto/WorkExpirience/Project.dto';
+import { ProjectDto } from '../../../Dto/Project/Project.dto';
 import { Repository } from 'typeorm';
 
 type ProjectsDto = { projects: ProjectDto[] };
@@ -13,7 +13,7 @@ function Contacts(props: ProjectsDto & Props) {
       <a className="waves-effect waves-light btn mt-2" href="/admin">
         Go to menu
       </a>
-      <HeadTitle title="Contacts" el="h2" margin={2} />
+      <HeadTitle title="Projects" el="h2" margin={2} />
 
       <script
         dangerouslySetInnerHTML={{
@@ -28,7 +28,7 @@ function Contacts(props: ProjectsDto & Props) {
       <ul className="collapsible">
         <li>
           <div className="collapsible-header df" style={{ color: '#000' }}>
-            <i className="material-icons">add_box</i>Add Work Expirience
+            <i className="material-icons">add_box</i>Add Project
           </div>
           <div className="collapsible-body">
             <form action="/admin/projects/add" method="POST">
@@ -71,7 +71,7 @@ function Contacts(props: ProjectsDto & Props) {
                 <label htmlFor="website_link">Website link</label>
               </div>
               <button type="submit" className="waves-effect waves-light btn">
-                Add Work
+                Add Project
               </button>
             </form>
           </div>

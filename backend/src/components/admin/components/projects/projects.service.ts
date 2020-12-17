@@ -4,7 +4,7 @@ import { Repository } from 'typeorm';
 import { ProjectsEntity } from './../../../../Models/Projects.entity';
 import { ProjectsDto } from './dto/projects.dto';
 import { TitlePage } from './../../dto/TitlePage.dto';
-import { ProjectDto } from 'src/Dto/WorkExpirience/Project.dto';
+import { ProjectDto } from 'src/Dto/Project/Project.dto';
 
 @Injectable()
 export class ProjectsService {

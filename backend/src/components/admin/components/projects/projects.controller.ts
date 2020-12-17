@@ -12,7 +12,7 @@ import {
 import { AuthGuard } from './../../guards/Auth.guard';
 import { AuthException } from './../../exceptions/Auth.exception';
 import { ProjectsService } from './projects.service';
-import { ProjectDto } from 'src/Dto/WorkExpirience/Project.dto';
+import { ProjectDto } from 'src/Dto/Project/Project.dto';
 import { ProjectsDto } from './dto/projects.dto';
 import { TitlePage } from './../../dto/TitlePage.dto';
 
