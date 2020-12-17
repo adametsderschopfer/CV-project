@@ -1,28 +1,42 @@
 import {
+  Body,
   Controller,
-  Delete,
   Get,
-  Patch,
+  Param,
   Post,
+  Redirect,
+  Render,
   UseFilters,
   UseGuards,
 } from '@nestjs/common';
 import { AuthGuard } from './../../guards/Auth.guard';
 import { AuthException } from './../../exceptions/Auth.exception';
+import { ExpsDto } from './dto/Exps.dto';
+import { TitlePage } from './../../dto/TitlePage.dto';
+import { WorkExpiriencesService } from './workexpiriences.service';
+import { WorkExpirienceDto } from 'src/Dto/WorkExpirience/WorkExpirience.dto';
 
 @Controller('admin/workexpiriences')
 @UseGuards(AuthGuard)
 @UseFilters(AuthException)
 export class WorkExpiriencesController {
-  @Get('/')
-  Page() {}
+  constructor(private readonly _expsService: WorkExpiriencesService) {}
 
-  @Patch('/edit')
-  Edit() {}
+  @Get('/')
+  @Render('WotkExpirience')
+  Page(): Promise<ExpsDto & TitlePage> {
+    return this._expsService.page();
+  }
 
   @Post('/add')
-  Add() {}
+  @Redirect('/admin/workexpiriences')
+  Add(@Body() work: WorkExpirienceDto): Promise<void> {
+    return this._expsService.add(work);
+  }
 
-  @Delete('/delete')
-  Delete() {}
+  @Get('/delete/:id')
+  @Redirect('/admin/workexpiriences')
+  Delete(@Param('id') id: string): Promise<void> {
+    return this._expsService.delete(id);
+  }
 }

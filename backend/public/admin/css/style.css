@@ -62,3 +62,11 @@ textarea {
   display: flex;
   align-items: center;
 }
+
+.column {
+  flex-direction: column;
+}
+
+.b {
+  color: #000;
+}
