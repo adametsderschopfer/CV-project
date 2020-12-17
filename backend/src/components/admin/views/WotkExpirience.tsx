@@ -12,7 +12,7 @@ function Contacts(props: WorkExpiriencesDto & Props) {
       <a className="waves-effect waves-light btn mt-2" href="/admin">
         Go to menu
       </a>
-      <HeadTitle title="Contacts" el="h2" margin={2} />
+      <HeadTitle title="Work Expirience" el="h2" margin={2} />
 
       <script
         dangerouslySetInnerHTML={{
@@ -118,7 +118,7 @@ function Contacts(props: WorkExpiriencesDto & Props) {
             </li>
           ))
         ) : (
-          <div>Contacts not found yet.</div>
+          <div>Work Expiriences not found yet.</div>
         )}
       </ul>
     </Layout>
