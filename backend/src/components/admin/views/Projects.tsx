@@ -47,8 +47,8 @@ function Contacts(props: ProjectsDto & Props) {
                   id="description"
                   name="description"
                   type="text"
-                  required
                   minLength={1}
+                  maxLength={140}
                 />
                 <label htmlFor="description">Description</label>
               </div>
@@ -81,18 +81,23 @@ function Contacts(props: ProjectsDto & Props) {
       <ul className="collection with-header">
         {props.projects.length ? (
           props.projects.map((project) => (
-            <li className="collection-item" key={project.id}>
+            <li className="collection-item mb-1 mt-1" key={project.id}>
               <div className="df" style={{ justifyContent: 'space-between' }}>
-                <div className="column b" style={{ display: 'flex' }}>
+                <div
+                  className="column b"
+                  style={{ display: 'flex', maxWidth: '300px' }}
+                >
                   <p>
                     <b>Name: </b> {project.title}
                   </p>
-                  <p>
-                    <b>Description: </b>
-                    <i style={{ maxWidth: 300, wordBreak: 'break-word' }}>
-                      {project.description}
-                    </i>
-                  </p>
+                  {project.description.length > 0 && (
+                    <p>
+                      <b>Description: </b>
+                      <i style={{ maxWidth: 300, wordBreak: 'break-word' }}>
+                        {project.description}
+                      </i>
+                    </p>
+                  )}
                   {project.repo_link && (
                     <p>
                       <b>Repository: </b>
@@ -111,6 +116,87 @@ function Contacts(props: ProjectsDto & Props) {
                     </p>
                   )}
                 </div>
+
+                <ul className="collapsible">
+                  <li>
+                    <div
+                      className="collapsible-header df"
+                      style={{ color: '#000' }}
+                    >
+                      <i className="material-icons">library_books</i>Edit
+                      project
+                    </div>
+                    <div className="collapsible-body">
+                      <form
+                        action={`/admin/projects/edit`}
+                        method="POST"
+                        className="b"
+                      >
+                        <div className="input-field col s6">
+                          <input
+                            id="title"
+                            name="title"
+                            defaultValue={project.title}
+                            type="text"
+                            className="b"
+                            required
+                            minLength={1}
+                          />
+                          <label htmlFor="title">Title</label>
+                        </div>
+                        <div className="input-field col s6">
+                          <input
+                            id="description"
+                            name="description"
+                            defaultValue={project.description}
+                            type="text"
+                            className="b"
+                            minLength={1}
+                            maxLength={140}
+                          />
+                          <label htmlFor="description">Description</label>
+                        </div>
+                        <div className="input-field col s6">
+                          <input
+                            id="repo_link"
+                            name="repo_link"
+                            defaultValue={project.repo_link}
+                            type="text"
+                            className="b"
+                            minLength={1}
+                          />
+                          <label htmlFor="repo_link">Repository link</label>
+                        </div>
+                        <div className="input-field col s6">
+                          <input
+                            id="website_link"
+                            name="website_link"
+                            defaultValue={project.website_link}
+                            type="text"
+                            className="b"
+                            minLength={1}
+                          />
+                          <label htmlFor="website_link">Website link</label>
+                        </div>
+
+                        <input
+                          type="hidden"
+                          name="id"
+                          defaultValue={project.id}
+                        />
+
+                        <div className="divider mt-1"></div>
+                        <button
+                          type="submit"
+                          className="waves-effect waves-light btn mt-2"
+                        >
+                          Edit project
+                        </button>
+                      </form>
+                    </div>
+                  </li>
+                </ul>
+
                 <a
                   href={`/admin/projects/delete/${project.id}`}
                   className="secondary-content"

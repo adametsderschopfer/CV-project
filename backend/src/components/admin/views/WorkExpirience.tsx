@@ -2,7 +2,7 @@ import * as React from 'react';
 import Layout from './components/Layout';
 import { Props } from './interfaces/index';
 import HeadTitle from './components/HeadTitle';
-import { WorkExpirienceDto } from './../../../Dto/WorkExpirience/WorkExpirience.dto';
+import { WorkExpirienceDto } from '../../../Dto/WorkExpirience/WorkExpirience.dto';
 
 type WorkExpiriencesDto = { expiriences: WorkExpirienceDto[] };
 
@@ -82,7 +82,7 @@ function Contacts(props: WorkExpiriencesDto & Props) {
           props.expiriences.map((expirience) => (
             <li className="collection-item" key={expirience.id}>
               <div className="df" style={{ justifyContent: 'space-between' }}>
-                <div className="df">
+                <div className="df" style={{ maxWidth: '300px' }}>
                   <img
                     src={expirience.imglink}
                     width={100}
@@ -108,6 +108,100 @@ function Contacts(props: WorkExpiriencesDto & Props) {
                     </div>
                   </div>
                 </div>
+
+                <ul className="collapsible">
+                  <li>
+                    <div
+                      className="collapsible-header df"
+                      style={{ color: '#000' }}
+                    >
+                      <i className="material-icons">library_books</i>Edit
+                      workExp
+                    </div>
+                    <div className="collapsible-body">
+                      <form
+                        action={`/admin/workexpiriences/edit`}
+                        method="POST"
+                        className="b"
+                      >
+                        <div className="input-field col s6">
+                          <input
+                            id="tag"
+                            name="tag"
+                            defaultValue={expirience.tag}
+                            type="text"
+                            className="b"
+                            required
+                            minLength={1}
+                          />
+                          <label htmlFor="tag">Tag</label>
+                        </div>
+                        <div className="input-field col s6">
+                          <input
+                            id="companyName"
+                            name="companyName"
+                            defaultValue={expirience.companyName}
+                            type="text"
+                            className="b"
+                            required
+                            minLength={1}
+                          />
+                          <label htmlFor="companyName">Company name</label>
+                        </div>
+                        <div className="input-field col s6">
+                          <input
+                            id="termWork"
+                            name="termWork"
+                            defaultValue={expirience.termWork}
+                            type="text"
+                            className="b"
+                            required
+                            minLength={1}
+                          />
+                          <label htmlFor="termWork">Term of the work</label>
+                        </div>
+                        <div className="input-field col s6">
+                          <input
+                            id="position"
+                            name="position"
+                            defaultValue={expirience.position}
+                            type="text"
+                            className="b"
+                            required
+                            minLength={1}
+                          />
+                          <label htmlFor="position">Position</label>
+                        </div>
+                        <div className="input-field col s6">
+                          <input
+                            id="imglink"
+                            name="imglink"
+                            defaultValue={expirience.imglink}
+                            type="text"
+                            className="b"
+                            minLength={1}
+                          />
+                          <label htmlFor="imglink">Img Link</label>
+                        </div>
+
+                        <input
+                          type="hidden"
+                          name="id"
+                          defaultValue={expirience.id}
+                        />
+
+                        <div className="divider mt-1"></div>
+                        <button
+                          type="submit"
+                          className="waves-effect waves-light btn mt-2"
+                        >
+                          Edit workExp
+                        </button>
+                      </form>
+                    </div>
+                  </li>
+                </ul>
+
                 <a
                   href={`/admin/workexpiriences/delete/${expirience.id}`}
                   className="secondary-content"

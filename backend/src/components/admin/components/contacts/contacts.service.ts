@@ -23,6 +23,10 @@ export class ContactsService {
     await this._contact.insert(contact);
   }
 
+  async edit(editedContact: ContactDto): Promise<void> {
+    await this._contact.update(editedContact.id, editedContact);
+  }
+
   async delete(id: string): Promise<void> {
     await this._contact.delete(id);
   }

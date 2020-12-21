@@ -34,6 +34,12 @@ export class ContactsController {
     return this._contactsService.add(contact);
   }
 
+  @Post('/edit')
+  @Redirect('/admin/contacts')
+  Edit(@Body() editedContact: ContactDto): Promise<void> {
+    return this._contactsService.edit(editedContact);
+  }
+
   @Get('/delete/:id')
   @Redirect('/admin/contacts')
   Delete(@Param('id') id: string): Promise<void> {

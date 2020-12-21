@@ -13,6 +13,14 @@ export default function Main(props: UpdateAboutmeDto & Props) {
 
       <HeadTitle title="About Me" el="h3" margin={2} />
 
+      <script
+        dangerouslySetInnerHTML={{
+          __html: `
+          M.textareaAutoResize(document.getElementById('textarea1'));
+      `,
+        }}
+      ></script>
+
       <form action="/admin/aboutme/edit" method="POST">
         <div className="input-field col s12 mt-3">
           <textarea
@@ -20,7 +28,6 @@ export default function Main(props: UpdateAboutmeDto & Props) {
             className="materialize-textarea"
             defaultValue={props.content}
             name="content"
-            style={{ textAlign: 'center' }}
             required
             minLength={10}
           ></textarea>

@@ -30,8 +30,14 @@ export class ProjectsController {
 
   @Post('/add')
   @Redirect('/admin/projects')
-  Add(@Body() project: ProjectDto) {
+  Add(@Body() project: ProjectDto): Promise<void> {
     return this._projectService.add(project);
+  }
+
+  @Post('/edit')
+  @Redirect('/admin/projects')
+  Edit(@Body() project: ProjectDto): Promise<void> {
+    return this._projectService.edit(project);
   }
 
   @Post('/delete/:id')

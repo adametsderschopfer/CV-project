@@ -23,7 +23,7 @@ export class WorkExpiriencesController {
   constructor(private readonly _expsService: WorkExpiriencesService) {}
 
   @Get('/')
-  @Render('WotkExpirience')
+  @Render('WorkExpirience')
   Page(): Promise<ExpsDto & TitlePage> {
     return this._expsService.page();
   }
@@ -32,6 +32,12 @@ export class WorkExpiriencesController {
   @Redirect('/admin/workexpiriences')
   Add(@Body() work: WorkExpirienceDto): Promise<void> {
     return this._expsService.add(work);
+  }
+
+  @Post('/edit')
+  @Redirect('/admin/workexpiriences')
+  Edit(@Body() workExp: WorkExpirienceDto): Promise<void> {
+    return this._expsService.edit(workExp);
   }
 
   @Get('/delete/:id')

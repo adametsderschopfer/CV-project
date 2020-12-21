@@ -23,6 +23,10 @@ export class ProjectsService {
     this._projects.insert(project);
   }
 
+  async edit(project: ProjectDto): Promise<void> {
+    await this._projects.update(project.id, project);
+  }
+
   async delete(id: string): Promise<void> {
     this._projects.delete(id);
   }

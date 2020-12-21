@@ -1,3 +1,7 @@
+/* 
+  Modules
+ */
+
 import { Module } from '@nestjs/common';
 import { AdminService } from './admin.service';
 import { AdminController } from './admin.controller';
@@ -10,6 +14,13 @@ import { TypeOrmModule } from '@nestjs/typeorm';
 import { Admin_auth } from './models/admin_auth.entity';
 import { Aboutme } from '../../Models/Aboutme.entity';
 import { ContactsEntity } from '../../Models/contacts.entity';
+import { WorkExpiriencesEntity } from 'src/Models/WorkExpiriences.entity';
+import { ProjectsEntity } from './../../Models/Projects.entity';
+import { ReferencesEntity } from './../../Models/Reference.entity';
+import { BooksEntity } from './../../Models/Books.entity';
+import { CertsEntity } from './../../Models/Cerit.entity';
+import { TechnologiesEntity } from './../../Models/Technologies.entity';
+import { SkillsEntity } from './../../Models/Skills.entity';
 
 /* 
   Views
@@ -25,15 +36,29 @@ import { ReferencesService } from './components/references/references.service';
 import { ReferencesController } from './components/references/references.controller';
 import { CertificatesService } from './components/certificates/certificates.service';
 import { CertificatesController } from './components/certificates/certificates.controller';
-import { TechonologiesController } from './components/techonologies/techonologies.controller';
-import { TechonologiesService } from './components/techonologies/techonologies.service';
+import { TechnologiesController } from './components/technologies/technologies.controller';
+import { TechnologiesService } from './components/technologies/services/technologies.service';
 import { WorkExpiriencesService } from './components/workexpiriences/workexpiriences.service';
 import { WorkExpiriencesController } from './components/workexpiriences/workexpiriences.controller';
 import { AboutMeController } from './components/aboutme/aboutme.controller';
 import { AboutMeService } from './components/aboutme/aboutme.service';
+import { SkillsService } from './components/technologies/services/skills/skills.service';
 
 @Module({
-  imports: [TypeOrmModule.forFeature([Admin_auth, Aboutme, ContactsEntity])],
+  imports: [
+    TypeOrmModule.forFeature([
+      Admin_auth,
+      Aboutme,
+      ContactsEntity,
+      WorkExpiriencesEntity,
+      ProjectsEntity,
+      ReferencesEntity,
+      BooksEntity,
+      CertsEntity,
+      TechnologiesEntity,
+      SkillsEntity,
+    ]),
+  ],
   providers: [
     AdminService,
     ContactsService,
@@ -41,9 +66,10 @@ import { AboutMeService } from './components/aboutme/aboutme.service';
     ProjectsService,
     ReferencesService,
     CertificatesService,
-    TechonologiesService,
+    TechnologiesService,
     WorkExpiriencesService,
     AboutMeService,
+    SkillsService,
   ],
   controllers: [
     AdminController,
@@ -52,7 +78,7 @@ import { AboutMeService } from './components/aboutme/aboutme.service';
     ProjectsController,
     ReferencesController,
     CertificatesController,
-    TechonologiesController,
+    TechnologiesController,
     WorkExpiriencesController,
     AboutMeController,
   ],

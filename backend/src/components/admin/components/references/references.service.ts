@@ -23,6 +23,10 @@ export class ReferencesService {
     await this._reference.insert(reference);
   }
 
+  async edit(reference: ReferenceDto): Promise<void> {
+    await this._reference.update(reference.id, reference);
+  }
+
   async delete(id: string): Promise<void> {
     await this._reference.delete(id);
   }

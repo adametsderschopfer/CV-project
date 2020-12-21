@@ -4,8 +4,6 @@ import { createEngine } from 'express-react-views';
 import * as path from 'path';
 import * as helmet from 'helmet';
 import * as compression from 'compression';
-import * as flash from 'flash';
-import * as session from 'express-session';
 import * as cookieParser from 'cookie-parser';
 import { AppModule } from './app.module';
 

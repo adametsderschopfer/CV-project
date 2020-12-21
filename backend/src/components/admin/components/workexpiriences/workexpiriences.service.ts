@@ -23,6 +23,10 @@ export class WorkExpiriencesService {
     await this._workExp.delete(id);
   }
 
+  async edit(workExp: WorkExpirienceDto): Promise<void> {
+    await this._workExp.update(workExp.id, workExp);
+  }
+
   async add(work: WorkExpirienceDto): Promise<void> {
     await this._workExp.insert({
       ...work,

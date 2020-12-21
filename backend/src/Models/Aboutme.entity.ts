@@ -5,7 +5,7 @@ export class Aboutme {
   @PrimaryColumn()
   id: number;
 
-  @Column()
+  @Column({ type: 'text' })
   content: string;
 
   @Column()

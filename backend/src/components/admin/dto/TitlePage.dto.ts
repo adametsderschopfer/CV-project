@@ -1,3 +1,3 @@
 export class TitlePage {
-  readonly title: string;
+  readonly title?: string;
 }

@@ -9,7 +9,7 @@ import {
   UseGuards,
 } from '@nestjs/common';
 import { AboutMeService } from './aboutme.service';
-import { UpdateAboutmeDto } from '../../../../Dto/Aboutme/UpdateContent.dto';
+import { UpdateAboutmeDto } from 'src/Dto/Aboutme/UpdateContent.dto';
 import { TitlePage } from '../../dto/TitlePage.dto';
 import { AuthException } from './../../exceptions/Auth.exception';
 import { AuthGuard } from './../../guards/Auth.guard';

@@ -74,7 +74,10 @@ function Contacts(props: ContactsDto & Props) {
           props.contacts.map((contact) => (
             <li className="collection-item" key={contact.id}>
               <div>
-                <div className="df" style={{ justifyContent: 'space-between' }}>
+                <div
+                  className="df fw"
+                  style={{ justifyContent: 'space-between' }}
+                >
                   <div
                     className="df"
                     style={{ justifyContent: 'space-between' }}
@@ -85,6 +88,77 @@ function Contacts(props: ContactsDto & Props) {
                       {contact.contact}
                     </a>
                   </div>
+                  <ul className="collapsible">
+                    <li>
+                      <div
+                        className="collapsible-header df"
+                        style={{ color: '#000' }}
+                      >
+                        <i className="material-icons">library_books</i>Edit
+                        contact
+                      </div>
+                      <div className="collapsible-body">
+                        <form
+                          action={`/admin/contacts/edit`}
+                          method="POST"
+                          className="b"
+                        >
+                          <div className="input-field col s6">
+                            <input
+                              id="where"
+                              name="where"
+                              className="b"
+                              type="text"
+                              required
+                              minLength={1}
+                              defaultValue={contact.where}
+                            />
+                            <label htmlFor="where">Where</label>
+                          </div>
+                          <div className="input-field col s6">
+                            <input
+                              id="contact"
+                              name="contact"
+                              className="b"
+                              type="text"
+                              required
+                              minLength={3}
+                              defaultValue={contact.contact}
+                            />
+                            <label htmlFor="contact">
+                              Short text {'(contact)'}
+                            </label>
+                          </div>
+                          <div className="input-field col s6">
+                            <input
+                              id="link"
+                              name="link"
+                              className="b"
+                              type="text"
+                              required
+                              minLength={3}
+                              defaultValue={contact.link}
+                            />
+                            <label htmlFor="link">Link</label>
+                          </div>
+                          <input
+                            type="hidden"
+                            name="id"
+                            defaultValue={contact.id}
+                          />
+
+                          <div className="divider mt-1"></div>
+                          <button
+                            type="submit"
+                            className="waves-effect waves-light btn mt-2"
+                          >
+                            Edit contact
+                          </button>
+                        </form>
+                      </div>
+                    </li>
+                  </ul>
+
                   <a
                     href={`/admin/contacts/delete/${contact.id}`}
                     className="secondary-content"
