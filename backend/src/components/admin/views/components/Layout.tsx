@@ -1,7 +1,7 @@
 import * as React from 'react';
 import { Props } from './../interfaces/index';
 
-export default function Layout(props: React.PropsWithChildren<Props>) {
+function Layout(props: React.PropsWithChildren<Props>) {
   return (
     <html>
       <head>
@@ -38,3 +38,9 @@ export default function Layout(props: React.PropsWithChildren<Props>) {
     </html>
   );
 }
+
+Layout.defaultProps = {
+  title: 'Page',
+};
+
+export default Layout;
