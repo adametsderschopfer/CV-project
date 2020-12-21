@@ -5,15 +5,15 @@ export class ProjectsEntity {
   @PrimaryGeneratedColumn('increment')
   id: number;
 
-  @Column()
+  @Column('varchar')
   title: string;
 
-  @Column({ type: 'text' })
+  @Column({ type: 'tinytext', scale: 140 })
   description: string;
 
-  @Column()
+  @Column({ type: 'text' })
   repo_link: string;
 
-  @Column()
+  @Column({ type: 'text' })
   website_link: string;
 }

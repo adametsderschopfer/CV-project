@@ -11,6 +11,6 @@ export class ContactsEntity {
   @Column()
   contact: string;
 
-  @Column()
+  @Column({ type: 'text' })
   link: string;
 }

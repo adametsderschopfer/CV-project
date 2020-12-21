@@ -8,6 +8,6 @@ export class ReferencesEntity {
   @Column()
   name: string;
 
-  @Column()
+  @Column('text')
   link: string;
 }

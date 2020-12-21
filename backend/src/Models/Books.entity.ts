@@ -5,7 +5,7 @@ export class BooksEntity {
   @PrimaryGeneratedColumn('increment')
   id: number;
 
-  @Column()
+  @Column({ type: 'text' })
   img: string;
 
   @Column({ default: false })

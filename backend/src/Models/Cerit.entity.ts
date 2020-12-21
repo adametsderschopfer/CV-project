@@ -5,6 +5,6 @@ export class CertsEntity {
   @PrimaryGeneratedColumn('increment')
   id: number;
 
-  @Column()
+  @Column({ type: 'text' })
   imglink: string;
 }

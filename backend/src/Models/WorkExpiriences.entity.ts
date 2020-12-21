@@ -11,12 +11,12 @@ export class WorkExpiriencesEntity {
   @Column()
   companyName: string;
 
-  @Column()
+  @Column('tinyint')
   termWork: string;
 
   @Column()
   position: string;
 
-  @Column({ default: '/imgs/img-404.png' })
+  @Column({ default: '/imgs/img-404.png', nullable: true })
   imglink: string;
 }
