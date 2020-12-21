@@ -40,7 +40,7 @@ export class ProjectsController {
     return this._projectService.edit(project);
   }
 
-  @Post('/delete/:id')
+  @Get('/delete/:id')
   @Redirect('/admin/projects')
   Delete(@Param('id') id: string): Promise<void> {
     return this._projectService.delete(id);
