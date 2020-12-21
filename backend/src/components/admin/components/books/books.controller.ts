@@ -20,7 +20,7 @@ import { BookDto } from 'src/Dto/Books/Book.dto';
 import { FileInterceptor } from '@nestjs/platform-express';
 import { diskStorage } from 'multer';
 import { extname } from 'path';
-import fileFilter from '../../../../helpers/fileFilterImg';
+import fileFilter from 'src/helpers/fileFilterImg';
 
 @Controller('admin/books')
 @UseGuards(AuthGuard)

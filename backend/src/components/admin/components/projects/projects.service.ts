@@ -1,7 +1,7 @@
 import { Injectable } from '@nestjs/common';
 import { InjectRepository } from '@nestjs/typeorm';
 import { Repository } from 'typeorm';
-import { ProjectsEntity } from './../../../../Models/Projects.entity';
+import { ProjectsEntity } from 'src/Models/Projects.entity';
 import { ProjectsDto } from './dto/projects.dto';
 import { TitlePage } from './../../dto/TitlePage.dto';
 import { ProjectDto } from 'src/Dto/Project/Project.dto';

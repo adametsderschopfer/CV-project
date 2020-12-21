@@ -18,7 +18,7 @@ import { CertificatesService } from './certificates.service';
 import { FileInterceptor } from '@nestjs/platform-express';
 import { extname } from 'path';
 import { diskStorage } from 'multer';
-import fileFilter from '../../../../helpers/fileFilterImg';
+import fileFilter from 'src/helpers/fileFilterImg';
 
 @Controller('admin/certificates')
 @UseGuards(AuthGuard)

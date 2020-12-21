@@ -1,7 +1,7 @@
 import { Injectable } from '@nestjs/common';
 import { InjectRepository } from '@nestjs/typeorm';
 import { Repository } from 'typeorm';
-import { CertsEntity } from './../../../../Models/Cerit.entity';
+import { CertsEntity } from 'src/Models/Cerit.entity';
 import { CertsDto } from './dto/Certs.dto';
 import { TitlePage } from './../../dto/TitlePage.dto';
 import { splitPublic } from 'src/helpers/splitPublic';
