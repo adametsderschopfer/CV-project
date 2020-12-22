@@ -1,4 +1,4 @@
-import { Injectable } from '@nestjs/common';
+import { Inject, Injectable } from '@nestjs/common';
 import { InjectRepository } from '@nestjs/typeorm';
 import { Repository } from 'typeorm';
 import { BooksEntity } from './../../../../Models/Books.entity';
@@ -6,11 +6,14 @@ import { BooksDto } from './dto/Books.dto';
 import { TitlePage } from './../../dto/TitlePage.dto';
 import { BookDto } from 'src/Dto/Books/Book.dto';
 import { splitPublic } from 'src/helpers/splitPublic';
+import { FileRemoverService } from 'src/services/file-remover/file-remover.service';
 
 @Injectable()
 export class BooksService {
   constructor(
     @InjectRepository(BooksEntity) readonly _books: Repository<BooksEntity>,
+    @Inject('FileRemoverService')
+    private readonly _fileRemover: FileRemoverService,
   ) {}
 
   async page(): Promise<BooksDto & TitlePage> {
@@ -31,6 +34,7 @@ export class BooksService {
   }
 
   async delete(id: string): Promise<void> {
-    await this._books.delete(id);
+    if (await this._fileRemover.remove(this._books, id, 'img'))
+      await this._books.delete(id);
   }
 }

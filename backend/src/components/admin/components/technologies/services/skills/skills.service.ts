@@ -1,15 +1,18 @@
-import { Injectable } from '@nestjs/common';
+import { Inject, Injectable } from '@nestjs/common';
 import { InjectRepository } from '@nestjs/typeorm';
 import { SkillDto } from 'src/Dto/Technologies/Skill.dto';
 import { splitPublic } from 'src/helpers/splitPublic';
 import { SkillsEntity } from 'src/Models/Skills.entity';
 import { Repository } from 'typeorm';
+import { FileRemoverService } from 'src/services/file-remover/file-remover.service';
 
 @Injectable()
 export class SkillsService {
   constructor(
     @InjectRepository(SkillsEntity)
-    readonly _skills: Repository<SkillsEntity>,
+    private readonly _skills: Repository<SkillsEntity>,
+    @Inject('FileRemoverService')
+    private readonly _fileRemover: FileRemoverService,
   ) {}
 
   async page(): Promise<SkillsEntity[]> {
@@ -41,6 +44,7 @@ export class SkillsService {
   }
 
   async delete(id: string): Promise<void> {
-    await this._skills.delete(id);
+    if (await this._fileRemover.remove(this._skills, id, 'img'))
+      await this._skills.delete(id);
   }
 }
