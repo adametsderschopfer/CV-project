@@ -44,30 +44,15 @@ export default function Main(props: Props) {
           Contact list
         </a>
       </div>
+
+      <div className="divider"></div>
+
+      <div className="views">
+        <h3>
+          <b>Views: </b>
+          {props.views || 0}
+        </h3>
+      </div>
     </Layout>
   );
 }
-
-/* 
-        <a
-          className="dropdown-trigger contacts-trigger btn"
-          href="#"
-          data-target="contacts"
-        >
-          Contacts
-        </a>
-
-        <ul id="contacts" className="dropdown-content">
-          <li>
-            <a href="/admin/contacts/add">Add contact</a>
-          </li>
-          <script
-            dangerouslySetInnerHTML={{
-              __html: `
-              document.addEventListener('DOMContentLoaded', function() {
-                M.Dropdown.init(document.querySelectorAll('.contacts-trigger'));
-              });
-          `,
-            }}
-          ></script>
-        </ul> */

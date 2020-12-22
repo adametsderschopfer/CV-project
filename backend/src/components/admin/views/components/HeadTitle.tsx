@@ -23,7 +23,7 @@ function HeadTitle(props: HeadTitleProps) {
 
 HeadTitle.defaultProps = {
   el: 'h1',
-  margin: 1,
+  margin: 2,
   title: 'Page',
 };
 

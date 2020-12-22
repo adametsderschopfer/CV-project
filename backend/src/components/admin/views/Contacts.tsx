@@ -3,6 +3,7 @@ import Layout from './components/Layout';
 import { Props } from './interfaces/index';
 import HeadTitle from './components/HeadTitle';
 import { ContactDto } from '../../../Dto/contactsDto/Contact.dto';
+import Form from './components/Form';
 
 type ContactsDto = { contacts: ContactDto[] };
 
@@ -14,60 +15,26 @@ function Contacts(props: ContactsDto & Props) {
       </a>
       <HeadTitle title="Contacts" el="h2" margin={2} />
 
-      <script
-        dangerouslySetInnerHTML={{
-          __html: `
-         document.addEventListener('DOMContentLoaded', function() {
-          M.Collapsible.init(document.querySelectorAll('.collapsible'));
-         });
-      `,
-        }}
-      ></script>
-
-      <ul className="collapsible">
-        <li>
-          <div className="collapsible-header df" style={{ color: '#000' }}>
-            <i className="material-icons">add_box</i>Add contact
-          </div>
-          <div className="collapsible-body">
-            <form action="/admin/contacts/add" method="POST">
-              <div className="input-field col s6">
-                <input
-                  id="where"
-                  name="where"
-                  type="text"
-                  required
-                  minLength={1}
-                />
-                <label htmlFor="where">Where</label>
-              </div>
-              <div className="input-field col s6">
-                <input
-                  id="contact"
-                  name="contact"
-                  type="text"
-                  required
-                  minLength={3}
-                />
-                <label htmlFor="contact">Short text {'(contact)'}</label>
-              </div>
-              <div className="input-field col s6">
-                <input
-                  id="link"
-                  name="link"
-                  type="text"
-                  required
-                  minLength={3}
-                />
-                <label htmlFor="link">Link</label>
-              </div>
-              <button type="submit" className="waves-effect waves-light btn">
-                Add contact
-              </button>
-            </form>
-          </div>
-        </li>
-      </ul>
+      <Form to="contacts/add" title="Add contact">
+        <div className="input-field col s6">
+          <input id="where" name="where" type="text" required minLength={1} />
+          <label htmlFor="where">Where</label>
+        </div>
+        <div className="input-field col s6">
+          <input
+            id="contact"
+            name="contact"
+            type="text"
+            required
+            minLength={3}
+          />
+          <label htmlFor="contact">Short text {'(contact)'}</label>
+        </div>
+        <div className="input-field col s6">
+          <input id="link" name="link" type="text" required minLength={3} />
+          <label htmlFor="link">Link</label>
+        </div>
+      </Form>
 
       <ul className="collection with-header">
         {props.contacts.length ? (
@@ -88,76 +55,46 @@ function Contacts(props: ContactsDto & Props) {
                       {contact.contact}
                     </a>
                   </div>
-                  <ul className="collapsible">
-                    <li>
-                      <div
-                        className="collapsible-header df"
-                        style={{ color: '#000' }}
-                      >
-                        <i className="material-icons">library_books</i>Edit
-                        contact
-                      </div>
-                      <div className="collapsible-body">
-                        <form
-                          action={`/admin/contacts/edit`}
-                          method="POST"
-                          className="b"
-                        >
-                          <div className="input-field col s6">
-                            <input
-                              id="where"
-                              name="where"
-                              className="b"
-                              type="text"
-                              required
-                              minLength={1}
-                              defaultValue={contact.where}
-                            />
-                            <label htmlFor="where">Where</label>
-                          </div>
-                          <div className="input-field col s6">
-                            <input
-                              id="contact"
-                              name="contact"
-                              className="b"
-                              type="text"
-                              required
-                              minLength={3}
-                              defaultValue={contact.contact}
-                            />
-                            <label htmlFor="contact">
-                              Short text {'(contact)'}
-                            </label>
-                          </div>
-                          <div className="input-field col s6">
-                            <input
-                              id="link"
-                              name="link"
-                              className="b"
-                              type="text"
-                              required
-                              minLength={3}
-                              defaultValue={contact.link}
-                            />
-                            <label htmlFor="link">Link</label>
-                          </div>
-                          <input
-                            type="hidden"
-                            name="id"
-                            defaultValue={contact.id}
-                          />
 
-                          <div className="divider mt-1"></div>
-                          <button
-                            type="submit"
-                            className="waves-effect waves-light btn mt-2"
-                          >
-                            Edit contact
-                          </button>
-                        </form>
-                      </div>
-                    </li>
-                  </ul>
+                  <Form to="contacts/edit" title="Edit">
+                    <div className="input-field col s6">
+                      <input
+                        id="where"
+                        name="where"
+                        className="b"
+                        type="text"
+                        required
+                        minLength={1}
+                        defaultValue={contact.where}
+                      />
+                      <label htmlFor="where">Where</label>
+                    </div>
+                    <div className="input-field col s6">
+                      <input
+                        id="contact"
+                        name="contact"
+                        className="b"
+                        type="text"
+                        required
+                        minLength={3}
+                        defaultValue={contact.contact}
+                      />
+                      <label htmlFor="contact">Short text {'(contact)'}</label>
+                    </div>
+                    <div className="input-field col s6">
+                      <input
+                        id="link"
+                        name="link"
+                        className="b"
+                        type="text"
+                        required
+                        minLength={3}
+                        defaultValue={contact.link}
+                      />
+                      <label htmlFor="link">Link</label>
+                    </div>
+                    <input type="hidden" name="id" defaultValue={contact.id} />
+                  </Form>
 
                   <a
                     href={`/admin/contacts/delete/${contact.id}`}

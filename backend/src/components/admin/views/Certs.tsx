@@ -3,6 +3,7 @@ import { CertDto } from './../../../Dto/Certs/Cert.dto';
 import { Props } from './interfaces/index';
 import HeadTitle from './components/HeadTitle';
 import Layout from './components/Layout';
+import Form from './components/Form';
 
 type CertsDto = { certs: CertDto[] };
 
@@ -14,53 +15,27 @@ function Certs(props: CertsDto & Props) {
       </a>
       <HeadTitle title="Certs" el="h2" margin={2} />
 
-      <script
-        dangerouslySetInnerHTML={{
-          __html: `
-         document.addEventListener('DOMContentLoaded', function() {
-          M.Collapsible.init(document.querySelectorAll('.collapsible'));
-         });
-      `,
-        }}
-      ></script>
-
-      <ul className="collapsible">
-        <li>
-          <div className="collapsible-header df" style={{ color: '#000' }}>
-            <i className="material-icons">add_box</i>Add cert
+      <Form
+        to="certificates/add"
+        formMore={{ encType: 'multipart/form-data' }}
+        title="Add cert"
+      >
+        <div>
+          <div className="file-field input-field">
+            <div className="btn">
+              <span>Add cert img</span>
+              <input type="file" multiple name="file" />
+            </div>
+            <div className="file-path-wrapper">
+              <input
+                className="file-path validate"
+                type="text"
+                placeholder="Upload one or more files"
+              />
+            </div>
           </div>
-          <div className="collapsible-body">
-            <form
-              action="/admin/certificates/add"
-              method="POST"
-              encType="multipart/form-data"
-            >
-              <div>
-                <div className="file-field input-field">
-                  <div className="btn">
-                    <span>Add cert img</span>
-                    <input type="file" multiple name="file" />
-                  </div>
-                  <div className="file-path-wrapper">
-                    <input
-                      className="file-path validate"
-                      type="text"
-                      placeholder="Upload one or more files"
-                    />
-                  </div>
-                </div>
-              </div>
-              <div className="divider mt-1"></div>
-              <button
-                type="submit"
-                className="waves-effect waves-light btn mt-2"
-              >
-                Add cert
-              </button>
-            </form>
-          </div>
-        </li>
-      </ul>
+        </div>
+      </Form>
 
       <ul className="collection with-header">
         {props.certs.length ? (
