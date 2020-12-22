@@ -43,6 +43,8 @@ import { WorkExpiriencesController } from './components/workexpiriences/workexpi
 import { AboutMeController } from './components/aboutme/aboutme.controller';
 import { AboutMeService } from './components/aboutme/aboutme.service';
 import { SkillsService } from './components/technologies/services/skills/skills.service';
+import { ViewsService } from 'src/services/views/views.service';
+import { ViewsEntity } from 'src/Models/Views.entity';
 
 @Module({
   imports: [
@@ -57,6 +59,7 @@ import { SkillsService } from './components/technologies/services/skills/skills.
       CertsEntity,
       TechnologiesEntity,
       SkillsEntity,
+      ViewsEntity,
     ]),
   ],
   providers: [
@@ -70,6 +73,7 @@ import { SkillsService } from './components/technologies/services/skills/skills.
     WorkExpiriencesService,
     AboutMeService,
     SkillsService,
+    ViewsService,
   ],
   controllers: [
     AdminController,
