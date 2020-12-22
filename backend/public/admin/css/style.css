@@ -74,3 +74,10 @@ textarea {
 .fw {
   flex-wrap: wrap;
 }
+
+.listElem {
+  max-width: 300px;
+  display: flex;
+  color: #000;
+  word-break: break-all;
+}
