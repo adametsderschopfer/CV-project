@@ -3,8 +3,8 @@ import { Repository } from 'typeorm';
 import { ExpsDto } from './dto/Exps.dto';
 import { TitlePage } from './../../dto/TitlePage.dto';
 import { InjectRepository } from '@nestjs/typeorm';
-import { WorkExpiriencesEntity } from 'src/Models/WorkExpiriences.entity';
-import { WorkExpirienceDto } from 'src/Dto/WorkExpirience/WorkExpirience.dto';
+import { WorkExpiriencesEntity } from '../../../../Models/WorkExpiriences.entity';
+import { WorkExpirienceDto } from '../../../../Dto/WorkExpirience/WorkExpirience.dto';
 
 @Injectable()
 export class WorkExpiriencesService {

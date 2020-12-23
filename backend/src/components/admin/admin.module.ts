@@ -14,14 +14,14 @@ import { TypeOrmModule } from '@nestjs/typeorm';
 import { Admin_auth } from './models/admin_auth.entity';
 import { Aboutme } from '../../Models/Aboutme.entity';
 import { ContactsEntity } from '../../Models/contacts.entity';
-import { WorkExpiriencesEntity } from 'src/Models/WorkExpiriences.entity';
+import { WorkExpiriencesEntity } from '../../Models/WorkExpiriences.entity';
 import { ProjectsEntity } from './../../Models/Projects.entity';
 import { ReferencesEntity } from './../../Models/Reference.entity';
 import { BooksEntity } from './../../Models/Books.entity';
 import { CertsEntity } from './../../Models/Cerit.entity';
 import { TechnologiesEntity } from './../../Models/Technologies.entity';
 import { SkillsEntity } from './../../Models/Skills.entity';
-import { ViewsEntity } from 'src/Models/Views.entity';
+import { ViewsEntity } from '../../Models/Views.entity';
 
 /* 
 Views
@@ -44,13 +44,14 @@ import { WorkExpiriencesController } from './components/workexpiriences/workexpi
 import { AboutMeController } from './components/aboutme/aboutme.controller';
 import { AboutMeService } from './components/aboutme/aboutme.service';
 import { SkillsService } from './components/technologies/services/skills/skills.service';
-import { ViewsService } from 'src/services/views/views.service';
-import { FileRemoverService } from 'src/services/file-remover/file-remover.service';
+import { ViewsService } from '../../services/views/views.service';
+import { FileRemoverService } from '../../services/file-remover/file-remover.service';
 
 @Module({
   imports: [
     TypeOrmModule.forFeature([
       Admin_auth,
+      ViewsEntity,
       Aboutme,
       ContactsEntity,
       WorkExpiriencesEntity,
@@ -60,7 +61,6 @@ import { FileRemoverService } from 'src/services/file-remover/file-remover.servi
       CertsEntity,
       TechnologiesEntity,
       SkillsEntity,
-      ViewsEntity,
     ]),
   ],
   providers: [

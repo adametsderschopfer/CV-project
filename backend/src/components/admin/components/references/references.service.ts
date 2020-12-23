@@ -1,10 +1,10 @@
 import { Injectable } from '@nestjs/common';
 import { InjectRepository } from '@nestjs/typeorm';
-import { ReferencesEntity } from 'src/Models/Reference.entity';
+import { ReferencesEntity } from '../../../../Models/Reference.entity';
 import { ReferencesDto } from './dto/References.dto';
 import { TitlePage } from './../../dto/TitlePage.dto';
 import { Repository } from 'typeorm';
-import { ReferenceDto } from 'src/Dto/References/Reference.dto';
+import { ReferenceDto } from '../../../../Dto/References/Reference.dto';
 
 @Injectable()
 export class ReferencesService {

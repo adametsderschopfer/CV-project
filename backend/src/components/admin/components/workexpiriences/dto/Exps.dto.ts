@@ -1,4 +1,4 @@
-import { WorkExpiriencesEntity } from 'src/Models/WorkExpiriences.entity';
+import { WorkExpiriencesEntity } from '../../../../../Models/WorkExpiriences.entity';
 
 export class ExpsDto {
   readonly expiriences?: WorkExpiriencesEntity[];

@@ -2,7 +2,7 @@ import * as React from 'react';
 import Layout from './components/Layout';
 import { Props } from './interfaces/index';
 import HeadTitle from './components/HeadTitle';
-import { ProjectDto } from 'src/Dto/Project/Project.dto';
+import { ProjectDto } from '../../../Dto/Project/Project.dto';
 import Form from './components/Form';
 
 type ProjectsDto = { projects: ProjectDto[] };

@@ -1,10 +1,10 @@
 import { Inject, Injectable } from '@nestjs/common';
 import { InjectRepository } from '@nestjs/typeorm';
-import { SkillDto } from 'src/Dto/Technologies/Skill.dto';
-import { splitPublic } from 'src/helpers/splitPublic';
-import { SkillsEntity } from 'src/Models/Skills.entity';
+import { SkillDto } from '../../../../../../Dto/Technologies/Skill.dto';
+import { splitPublic } from '../../../../../../helpers/splitPublic';
+import { SkillsEntity } from '../../../../../../Models/Skills.entity';
 import { Repository } from 'typeorm';
-import { FileRemoverService } from 'src/services/file-remover/file-remover.service';
+import { FileRemoverService } from '../../../../../../services/file-remover/file-remover.service';
 
 @Injectable()
 export class SkillsService {
@@ -28,19 +28,19 @@ export class SkillsService {
   }
 
   async edit(skill: SkillDto, file: any): Promise<void> {
-    await this._skills.update(
-      skill.id,
-      file
-        ? {
-            name: skill.name,
-            img: splitPublic(file),
-            skillPercent: skill.skillPercent,
-          }
-        : {
-            name: skill.name,
-            skillPercent: skill.skillPercent,
-          },
-    );
+    if (file) {
+      if (await this._fileRemover.remove(this._skills, skill.id, 'img'))
+        await this._skills.update(skill.id, {
+          name: skill.name,
+          img: splitPublic(file),
+          skillPercent: skill.skillPercent,
+        });
+    } else {
+      await this._skills.update(skill.id, {
+        name: skill.name,
+        skillPercent: skill.skillPercent,
+      });
+    }
   }
 
   async delete(id: string): Promise<void> {

@@ -47,6 +47,4 @@ export class AdminService {
 
     return;
   }
-
-  Main() {}
 }

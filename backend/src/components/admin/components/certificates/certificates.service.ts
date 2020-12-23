@@ -1,11 +1,11 @@
 import { Inject, Injectable } from '@nestjs/common';
 import { InjectRepository } from '@nestjs/typeorm';
 import { Repository } from 'typeorm';
-import { CertsEntity } from 'src/Models/Cerit.entity';
+import { CertsEntity } from '../../../../Models/Cerit.entity';
 import { CertsDto } from './dto/Certs.dto';
 import { TitlePage } from './../../dto/TitlePage.dto';
-import { splitPublic } from 'src/helpers/splitPublic';
-import { FileRemoverService } from 'src/services/file-remover/file-remover.service';
+import { splitPublic } from '../../../../helpers/splitPublic';
+import { FileRemoverService } from '../../../../services/file-remover/file-remover.service';
 
 @Injectable()
 export class CertificatesService {

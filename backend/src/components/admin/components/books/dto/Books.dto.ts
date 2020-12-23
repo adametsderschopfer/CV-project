@@ -1,4 +1,4 @@
-import { BooksEntity } from 'src/Models/Books.entity';
+import { BooksEntity } from '../../../../../Models/Books.entity';
 
 export class BooksDto {
   readonly books: BooksEntity[];

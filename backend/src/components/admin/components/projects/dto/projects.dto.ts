@@ -1,4 +1,4 @@
-import { ProjectsEntity } from 'src/Models/Projects.entity';
+import { ProjectsEntity } from '../../../../../Models/Projects.entity';
 
 export class ProjectsDto {
   readonly projects: ProjectsEntity[];

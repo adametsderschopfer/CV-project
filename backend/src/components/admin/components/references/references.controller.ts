@@ -12,7 +12,7 @@ import {
 import { AuthGuard } from './../../guards/Auth.guard';
 import { AuthException } from './../../exceptions/Auth.exception';
 import { ReferencesService } from './references.service';
-import { ReferenceDto } from 'src/Dto/References/Reference.dto';
+import { ReferenceDto } from '../../../../Dto/References/Reference.dto';
 
 @Controller('admin/references')
 @UseGuards(AuthGuard)

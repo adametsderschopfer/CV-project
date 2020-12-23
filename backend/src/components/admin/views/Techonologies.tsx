@@ -2,8 +2,8 @@ import * as React from 'react';
 import Layout from './components/Layout';
 import { Props } from './interfaces/index';
 import HeadTitle from './components/HeadTitle';
-import { TechnologyDto } from 'src/Dto/Technologies/Technology.dto';
-import { SkillDto } from 'src/Dto/Technologies/Skill.dto';
+import { TechnologyDto } from '../../../Dto/Technologies/Technology.dto';
+import { SkillDto } from '../../../Dto/Technologies/Skill.dto';
 import Form from './components/Form';
 
 type TechnologiesDto = {

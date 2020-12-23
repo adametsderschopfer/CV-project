@@ -13,7 +13,7 @@ import { AuthGuard } from './guards/Auth.guard';
 import { LoginDto } from './dto/login.dto';
 import { AuthException } from './exceptions/Auth.exception';
 import { Response } from 'express';
-import { ViewsService } from 'src/services/views/views.service';
+import { ViewsService } from '../../services/views/views.service';
 
 @Controller('admin')
 export class AdminController {

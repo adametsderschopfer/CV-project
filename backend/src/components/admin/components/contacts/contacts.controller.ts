@@ -14,7 +14,7 @@ import { AuthException } from './../../exceptions/Auth.exception';
 import { TitlePage } from '../../dto/TitlePage.dto';
 import { ContactsDto } from './dto/Contacts.dto';
 import { ContactsService } from './contacts.service';
-import { ContactDto } from 'src/Dto/contactsDto/Contact.dto';
+import { ContactDto } from '../../../../Dto/contactsDto/Contact.dto';
 
 @Controller('admin/contacts')
 @UseGuards(AuthGuard)

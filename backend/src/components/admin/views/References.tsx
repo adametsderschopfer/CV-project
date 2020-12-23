@@ -2,7 +2,7 @@ import * as React from 'react';
 import Layout from './components/Layout';
 import { Props } from './interfaces/index';
 import HeadTitle from './components/HeadTitle';
-import { ReferenceDto } from 'src/Dto/References/Reference.dto';
+import { ReferenceDto } from '../../../Dto/References/Reference.dto';
 import Form from './components/Form';
 
 type ReferencesDto = { references: ReferenceDto[] };

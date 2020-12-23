@@ -1,5 +1,5 @@
-import { SkillsEntity } from 'src/Models/Skills.entity';
-import { TechnologiesEntity } from 'src/Models/Technologies.entity';
+import { SkillsEntity } from '../../../../../Models/Skills.entity';
+import { TechnologiesEntity } from '../../../../../Models/Technologies.entity';
 
 type More = { technologies: TechnologiesEntity[]; skills: SkillsEntity[] };
 

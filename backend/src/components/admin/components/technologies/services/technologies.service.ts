@@ -1,10 +1,10 @@
 import { Inject, Injectable } from '@nestjs/common';
 import { InjectRepository } from '@nestjs/typeorm';
-import { TechnologyDto } from 'src/Dto/Technologies/Technology.dto';
-import { splitPublic } from 'src/helpers/splitPublic';
-import { TechnologiesEntity } from 'src/Models/Technologies.entity';
+import { TechnologyDto } from '../../../../../Dto/Technologies/Technology.dto';
+import { splitPublic } from '../../../../../helpers/splitPublic';
+import { TechnologiesEntity } from '../../../../../Models/Technologies.entity';
 import { Repository } from 'typeorm';
-import { FileRemoverService } from 'src/services/file-remover/file-remover.service';
+import { FileRemoverService } from '../../../../../services/file-remover/file-remover.service';
 
 @Injectable()
 export class TechnologiesService {
@@ -27,17 +27,17 @@ export class TechnologiesService {
   }
 
   async edit(tech: TechnologyDto, file: any): Promise<void> {
-    await this._technologies.update(
-      tech.id,
-      file
-        ? {
-            name: tech.name,
-            img: splitPublic(file),
-          }
-        : {
-            name: tech.name,
-          },
-    );
+    if (file) {
+      if (await this._fileRemover.remove(this._technologies, tech.id, 'img'))
+        await this._technologies.update(tech.id, {
+          name: tech.name,
+          img: splitPublic(file),
+        });
+    } else {
+      await this._technologies.update(tech.id, {
+        name: tech.name,
+      });
+    }
   }
 
   async delete(id: string): Promise<void> {

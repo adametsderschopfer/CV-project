@@ -14,7 +14,7 @@ import { AuthException } from './../../exceptions/Auth.exception';
 import { ExpsDto } from './dto/Exps.dto';
 import { TitlePage } from './../../dto/TitlePage.dto';
 import { WorkExpiriencesService } from './workexpiriences.service';
-import { WorkExpirienceDto } from 'src/Dto/WorkExpirience/WorkExpirience.dto';
+import { WorkExpirienceDto } from '../../../../Dto/WorkExpirience/WorkExpirience.dto';
 
 @Controller('admin/workexpiriences')
 @UseGuards(AuthGuard)

@@ -4,9 +4,9 @@ import { Repository } from 'typeorm';
 import { BooksEntity } from './../../../../Models/Books.entity';
 import { BooksDto } from './dto/Books.dto';
 import { TitlePage } from './../../dto/TitlePage.dto';
-import { BookDto } from 'src/Dto/Books/Book.dto';
-import { splitPublic } from 'src/helpers/splitPublic';
-import { FileRemoverService } from 'src/services/file-remover/file-remover.service';
+import { BookDto } from './../../../../Dto/Books/Book.dto';
+import { splitPublic } from './../../../../helpers/splitPublic';
+import { FileRemoverService } from './../../../../services/file-remover/file-remover.service';
 
 @Injectable()
 export class BooksService {

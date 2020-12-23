@@ -16,11 +16,11 @@ import { AuthException } from './../../exceptions/Auth.exception';
 import { BooksDto } from './dto/Books.dto';
 import { TitlePage } from './../../dto/TitlePage.dto';
 import { BooksService } from './books.service';
-import { BookDto } from 'src/Dto/Books/Book.dto';
+import { BookDto } from '../../../../Dto/Books/Book.dto';
 import { FileInterceptor } from '@nestjs/platform-express';
 import { diskStorage } from 'multer';
 import { extname } from 'path';
-import fileFilter from 'src/helpers/fileFilterImg';
+import fileFilter from '../../../../helpers/fileFilterImg';
 
 @Controller('admin/books')
 @UseGuards(AuthGuard)

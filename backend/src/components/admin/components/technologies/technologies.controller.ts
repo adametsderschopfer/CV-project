@@ -17,12 +17,12 @@ import { TechnologiesDto } from './dto/Technologies.dto';
 import { TitlePage } from '../../dto/TitlePage.dto';
 import { SkillsService } from './services/skills/skills.service';
 import { TechnologiesService } from './services/technologies.service';
-import { SkillDto } from 'src/Dto/Technologies/Skill.dto';
-import { TechnologyDto } from 'src/Dto/Technologies/Technology.dto';
+import { SkillDto } from '../../../../Dto/Technologies/Skill.dto';
+import { TechnologyDto } from '../../../../Dto/Technologies/Technology.dto';
 import { FileInterceptor } from '@nestjs/platform-express';
 import { extname } from 'path';
 import { diskStorage } from 'multer';
-import fileFilter from 'src/helpers/fileFilterImg';
+import fileFilter from '../../../../helpers/fileFilterImg';
 
 const FileInterseptor = (p: string) =>
   FileInterceptor('file', {
