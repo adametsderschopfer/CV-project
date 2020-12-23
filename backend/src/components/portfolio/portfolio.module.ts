@@ -19,6 +19,7 @@ import { CertsEntity } from '../../Models/Cerit.entity';
 import { TechnologiesEntity } from '../../Models/Technologies.entity';
 import { SkillsEntity } from '../../Models/Skills.entity';
 import { ViewsEntity } from '../../Models/Views.entity';
+import { ViewsService } from 'src/services/views/views.service';
 
 @Module({
   imports: [
@@ -43,6 +44,6 @@ import { ViewsEntity } from '../../Models/Views.entity';
     }),
   ],
   controllers: [PortfolioController],
-  providers: [PortfolioService],
+  providers: [PortfolioService, ViewsService],
 })
 export class PortfolioModule {}
