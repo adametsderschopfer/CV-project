@@ -5,10 +5,14 @@ import * as path from 'path';
 import * as helmet from 'helmet';
 import * as compression from 'compression';
 import * as cookieParser from 'cookie-parser';
+
 import { AppModule } from './app.module';
+import { HttpExceptionFilter } from './filters/http-exception.filter';
 
 async function bootstrap() {
   const app = await NestFactory.create<NestExpressApplication>(AppModule);
+
+  app.useGlobalFilters(new HttpExceptionFilter());
 
   app.useStaticAssets(path.join(__dirname, '..', 'public'));
 
