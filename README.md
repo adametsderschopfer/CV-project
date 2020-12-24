@@ -1,7 +1,7 @@
-<center>CV (Curriculum vitae)</center>
+# CV (Curriculum vitae)
 
 --------
-# Comits name: 
+## Comits name: 
 1. **chore**
 2. **fix**
 3. **build**
@@ -9,7 +9,7 @@
 5. **docs**
 6. **feet**
 ---------
-# License
+## License
 MIT License
 Copyright © 2020 Adametsofficial
 
