@@ -1,4 +1,12 @@
-# CV (Curriculum vitae)
+# **CV (Curriculum vitae)**
+
+## Technologies
+1. **Nest.js**
+2. **TypeScript**
+3. **React.js**
+4. **Redux** => (Redux-thunk, React-redux)
+5. **UIKit**
+6. **Typeorm**
 
 --------
 ## Comits name: 
