@@ -1,4 +1,4 @@
-# **CV (Curriculum vitae)**
+# **CV (Curriculum vitae) Adamets Vladislav**
 
 ## Technologies
 1. **Nest.js**
