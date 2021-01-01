@@ -1,0 +1,15 @@
+.app {
+  padding: 0 15px;
+
+  color: #fff;
+
+  // height: 85vh;
+
+  &--container{ 
+    max-width: 1300px;
+
+    margin: 0 auto;
+
+    height: 100%;
+  }
+}
