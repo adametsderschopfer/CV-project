@@ -56,7 +56,7 @@ function References(props: ReferencesDto & Props) {
                 <Form
                   to="references/edit"
                   title="Edit reference"
-                  formMore={{ class: 'b' }}
+                  formMore={{ className: 'b' }}
                 >
                   <div className="input-field col s6">
                     <input

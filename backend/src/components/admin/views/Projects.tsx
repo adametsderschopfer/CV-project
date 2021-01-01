@@ -17,7 +17,14 @@ function Projects(props: ProjectsDto & Props) {
 
       <Form title="Add project" to="projects/add">
         <div className="input-field col s6">
-          <input id="title" name="title" type="text" required minLength={1} />
+          <input
+            id="title"
+            name="title"
+            type="text"
+            maxLength={22}
+            required
+            minLength={1}
+          />
           <label htmlFor="title">Title</label>
         </div>
         <div className="input-field col s6">
