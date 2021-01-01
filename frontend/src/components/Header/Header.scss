@@ -104,13 +104,13 @@
       }
 
       &-active {
-        text-decoration: underline;
+        text-decoration: underline !important;
         color: $main !important;
       }
 
       &--more {
         &__item {
-          color: #000 !important;
+          color: #000;
         }
 
         &__button { 
