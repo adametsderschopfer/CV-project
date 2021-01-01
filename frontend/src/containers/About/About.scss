@@ -1,0 +1,182 @@
+@import '../../styles/colors.scss';
+
+.about {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+
+  &__info {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    
+    min-width: 50px;
+    min-height: 140px;
+
+    max-width: 870px;
+
+    width: 100%;
+
+    background-color: $main;
+
+    margin-top: 160px;
+    margin-bottom: 60px;
+
+    border-radius: 10px;
+
+    &--element {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: space-between;
+
+      margin: 0 10px;
+
+      &_value {
+        font-weight: bold;
+        font-size: 40px;
+        
+        color: #fff;
+      }
+
+      &_name {
+        font-weight: 500;
+        font-size: 16px;
+        
+        color: #000;
+        text-align: center;
+        word-break: break-word;
+      }
+    }
+  }
+
+  &-container {
+    max-width: 870px;
+    width: 100%;
+
+    display: flex;
+    flex-direction: column;
+  
+    padding: 0 15px;
+
+    height: 100%;
+
+    transition: height 0.3s;
+
+    & > * {
+      color: #fff !important;
+    }    
+
+    pre { 
+      background: #333 !important;
+      width: 40vmax;
+    }
+  }
+
+  &__head {
+    position: relative;
+
+    min-height: 140px;
+
+    max-width: 870px;
+    max-height: 350px;
+
+    width: 100%;
+
+    margin-top: 10px;
+  
+    &-name {
+      position: absolute;
+      top: calc((100% - 50%) / 2);
+    }
+
+    &-center {
+      width: 50%;
+
+      position: absolute;
+      
+      left: calc(100% / 4);
+
+      z-index: 1000;
+    }
+
+   &--buttons {
+    display: flex;
+    justify-content: space-between;
+
+    margin-top: 200px;
+
+     z-index: 100000;
+    &-button {
+      margin: 0 10px;
+      button {
+        height: 50px;
+      }
+    }
+   } 
+  }
+
+  &__content {
+    background: #74cf28;
+    width: 100vw;
+    min-height: 50px;
+
+    display: flex;
+    justify-content: center;
+
+    &--title {
+      font-style: normal;
+      font-weight: 500;
+      font-size: 36px;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+
+      color: #000000 !important;
+
+      margin-top: 35px;
+      margin-bottom: 20px;
+
+      text-align: center;
+    }
+  }
+}
+
+@media (max-width: 850px) {
+  .about {
+    &__head { 
+      justify-content: center;
+    }
+  }
+}
+
+
+@media (max-width: 800px) {
+  .about {
+    &__info {
+      margin-top: 60px;
+    }
+  }
+}
+
+
+@media (max-width: 490px) {
+  .about {
+    &__head { 
+      &-name {
+        top: calc((350px / 4) / 2);
+      }
+    }
+  }
+}
+
+@media (max-width: 520px) {
+  .about {
+    &__head { 
+      &--buttons {
+        margin-top: calc(100% / 2);
+      }
+    }
+  }
+}
+
