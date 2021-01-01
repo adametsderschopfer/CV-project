@@ -44,15 +44,15 @@ export class PortfolioService {
   ) {}
 
   async aboutme() {
-    return { aboutme: await this._aboutme.find() };
+    return (await this._aboutme.find())[0];
   }
 
   async books() {
-    return { books: await this._books.find() };
+    return await this._books.find();
   }
 
   async projects() {
-    return { projects: await this._projects.find() };
+    return (await this._projects.find()).reverse();
   }
 
   async technologies() {
@@ -63,19 +63,19 @@ export class PortfolioService {
   }
 
   async certs() {
-    return { certs: await this._certs.find() };
+    return await this._certs.find();
   }
 
   async contacts() {
-    return { contacts: await this._contacts.find() };
+    return await this._contacts.find();
   }
 
   async workexp() {
-    return { workexp: await this._workexp.find() };
+    return (await this._workexp.find()).reverse();
   }
 
   async reference() {
-    return { reference: await this._reference.find() };
+    return await this._reference.find();
   }
 
   async feedback(mail: MailDto) {
