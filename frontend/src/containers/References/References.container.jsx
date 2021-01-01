@@ -39,35 +39,30 @@ export function References() {
 
   return (
     <main className="references">
+      <div className="title--page">References</div>
       <div className="references__container">
         <div className="references--text">
-          <div className="title--page">References</div>
-          <div className="references--text-content">
-            {loading ? (
-              <Loader />
-            ) : (
-              (!nothing &&
-                references.length &&
-                references.map((i, idx) => (
-                  <div className="references--text-reference" key={idx}>
-                    <div className="references--text-reference" key={idx}>
-                      <p className="references--text-reference__where">
-                        <b>{i.name}</b>:&nbsp;
-                      </p>
-                      <a
-                        className="references--text-references__link"
-                        target="__blank"
-                        href={i.link}
-                      >
-                        {i.link}
-                      </a>
-                    </div>
-                  </div>
-                ))) || <div>Рефов пока нет.</div>
-            )}
-          </div>
+          {loading ? (
+            <Loader />
+          ) : (
+            (!nothing &&
+              references.length &&
+              references.map((i, idx) => (
+                <div className="references--text-reference" key={idx}>
+                  <p className="references--text-reference__where">
+                    <b>{i.name}</b>:&nbsp;
+                  </p>
+                  <a
+                    className="references--text-reference__link"
+                    target="__blank"
+                    href={i.link}
+                  >
+                    {i.link}
+                  </a>
+                </div>
+              ))) || <div>Рефов пока нет.</div>
+          )}
         </div>
-
         <ReferenceImg cls="references--img" />
       </div>
     </main>
