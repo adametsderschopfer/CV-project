@@ -1,0 +1,128 @@
+@import '../../styles/colors.scss';
+
+.header { 
+  max-height: 40px;
+  height: 40px;
+  padding: 20px 0;
+
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+  &--mobile {
+    width: 100%;
+
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    .uk-card {
+      margin-left: auto;
+      width: 200px;
+    }
+
+    &__menu {
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+
+      a, button { 
+        color: #000 !important;
+
+        margin: 8px 0;
+
+        font-size: 20px;
+      }
+
+      button { 
+        padding: 0;
+      }
+
+      &-svg svg{
+        fill: #fff !important;
+        stroke: none !important;
+      }
+    }
+
+    &__button { 
+      border: none;
+      background: #fff;
+
+      outline: none;
+
+      width: 40px;
+      height: 40px;
+
+      padding: 2px;
+    }
+  }
+
+  &--social {
+    &__item {
+      margin: 0 15px;
+
+      &:first-child {
+        margin-left: 0px;
+      }
+
+
+     svg {
+      stroke: none;
+      fill: #000;
+
+      width: 35px;
+      height: 35px;
+
+       &:hover {
+        stroke: none !important;
+        fill: $main !important;
+        transition: 0.3s;
+       }
+     }
+    }
+  }
+  
+  &--menu {
+
+    &--dropdown-items {
+      display: flex;
+      flex-direction: column;
+    }
+
+    &__item {
+      font-size: 16px;
+
+      text-decoration: none;
+
+      margin: 0 15px;
+
+      transition: color 0.2s;
+      &:hover {
+        text-decoration: underline;
+
+        color: $main !important;
+      }
+
+      &-active {
+        text-decoration: underline;
+        color: $main !important;
+      }
+
+      &--more {
+        &__item {
+          color: #000 !important;
+        }
+
+        &__button { 
+          background: transparent;
+          color: #fff;
+          border: #fff;
+
+          outline: none;
+        }
+      }
+     
+    }
+  }
+
+}
