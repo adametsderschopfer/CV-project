@@ -6,7 +6,10 @@ import { Contacts } from "./containers/Contacts/Contacts.container";
 import { Home } from "./containers/Home/Home.container";
 import { Projects } from "./containers/Projects/Projects.container";
 import { References } from "./containers/References/References.container";
+import { Technologies } from "./containers/Technologies/Technologies.container";
 import { WorkExp } from "./containers/WorkExp/WorkExp.container";
+import { Books } from "./containers/Books/Books.container";
+import { Certs } from "./containers/Certs/Certs.container";
 
 export function Routing() {
   return (
@@ -17,9 +20,9 @@ export function Routing() {
       <Route path="/projects" component={Projects} />
       <Route path="/references" component={References} />
       <Route path="/workexp" component={WorkExp} />
-      <Route path="/certs" component={Home} />
-      <Route path="/technologies" component={Home} />
-      <Route path="/books" component={Home} />
+      <Route path="/certs" component={Certs} />
+      <Route path="/technologies" component={Technologies} />
+      <Route path="/books" component={Books} />
 
       <Route path="*">
         <h1>
