@@ -1,0 +1,96 @@
+@import '../../styles/colors.scss';
+
+.home {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+  flex-wrap: wrap-reverse;
+
+  height: 85vh;
+
+  &--text_section {
+    transform: scale(0.5);
+
+    user-select: none;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+
+    max-width: 532px;
+    max-height: 400px;
+
+    height: 100%;
+
+    &__name {
+      font-weight: bold;
+      font-size: 48px;
+
+      margin-bottom: 10px;
+    }
+    
+    &__position {
+      margin-bottom: 40px;
+
+      font-weight: 500;
+      font-size: 25px;
+
+      letter-spacing: 0.065em;
+
+
+      &--colorize {
+        color: $main;
+      }
+    }
+
+    &__description {
+      font-weight: normal;
+      font-size: 14px;
+      letter-spacing: 0.1em;
+      
+      color: rgba(255, 255, 255, 0.5);
+
+      margin-bottom: 100px;
+    } 
+  }
+}
+
+@media screen and(max-width: 1090px) {
+  .home {
+    justify-content: center;
+
+    position: relative;
+
+    &--text_section {
+      max-height: 100%;
+      z-index: 1000;
+      & * {
+        text-align: center;
+      }
+
+      justify-content: center;
+      align-items: center;
+
+      &__description {
+        margin-bottom: 80px;
+      }
+    }
+
+    &--img_section {
+      position: absolute;
+      z-index: 1;
+
+      opacity: 0.1;
+    }
+  }
+}
+@media screen and (max-height: 568px) {
+  .home {
+    &--text_section {
+      &__description {
+        margin-bottom: 40px !important;
+      }
+    }
+  }
+}
