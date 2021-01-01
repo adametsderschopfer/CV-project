@@ -1,0 +1,58 @@
+@import '../../styles/colors.scss';
+
+.button {
+  max-width: 250px;
+  max-height: 50px;
+
+  min-height: 30px;
+
+  border: none;
+  border-radius: 77px;
+
+  padding: 0 10px;
+
+  color: $btn_color;
+
+  background-color: $main !important;
+
+  cursor: pointer;
+
+  transition: all 0.4s ease-in-out;
+
+  border: 1px solid $main;
+
+  &:hover {
+    background-color: transparent !important;
+    color: $main !important;
+    border: 1px solid $main;
+  }
+
+  &--bordered {
+    background-color: transparent !important;
+
+    box-sizing: border-box;
+
+    .button__text, .button__text > * { 
+      color: $main !important;
+    }
+
+    &:hover {
+      background-color: $main !important;
+      
+      .button__text, .button__text > * { 
+        color: $btn_color !important;
+      }
+    }
+  }
+
+  &__text {
+    font-weight: normal;
+    font-size: 14px;
+
+    letter-spacing: 0.1em;
+  }
+
+  a { 
+    text-decoration: none;
+  }
+}
