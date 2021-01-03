@@ -4,5 +4,6 @@ export class WorkExpirienceDto {
   readonly companyName: string;
   readonly termWork: string;
   readonly position: string;
+  readonly description: string;
   readonly imglink?: string;
 }
