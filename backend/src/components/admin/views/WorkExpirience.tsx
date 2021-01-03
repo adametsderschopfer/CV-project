@@ -41,6 +41,15 @@ function WorkExpiriences(props: WorkExpiriencesDto & Props) {
           <label htmlFor="termWork">Term of the work</label>
         </div>
         <div className="input-field col s6">
+          <textarea
+            id="description"
+            name="description"
+            required
+            minLength={1}
+          />
+          <label htmlFor="description">Description</label>
+        </div>
+        <div className="input-field col s6">
           <input
             id="position"
             name="position"
@@ -51,7 +60,13 @@ function WorkExpiriences(props: WorkExpiriencesDto & Props) {
           <label htmlFor="position">Position</label>
         </div>
         <div className="input-field col s6">
-          <input id="imglink" name="imglink" type="text" minLength={1} />
+          <input
+            id="imglink"
+            defaultValue="/imgs/img-404.png"
+            name="imglink"
+            type="text"
+            minLength={1}
+          />
           <label htmlFor="imglink">Img Link</label>
         </div>
       </Form>
@@ -61,7 +76,7 @@ function WorkExpiriences(props: WorkExpiriencesDto & Props) {
           props.expiriences.map((expirience) => (
             <li className="collection-item" key={expirience.id}>
               <div className="df" style={{ justifyContent: 'space-between' }}>
-                <div className="df" style={{ maxWidth: '300px' }}>
+                <div className="df listElem">
                   <img
                     src={expirience.imglink}
                     width={100}
@@ -84,6 +99,10 @@ function WorkExpiriences(props: WorkExpiriencesDto & Props) {
                     </div>
                     <div className="b">
                       <b>Term of the work:</b> {expirience.termWork}
+                    </div>
+                    <div className="b">
+                      <b>Description:</b>{' '}
+                      {expirience.description.substring(0, 30)}
                     </div>
                   </div>
                 </div>
@@ -123,6 +142,17 @@ function WorkExpiriences(props: WorkExpiriencesDto & Props) {
                       minLength={1}
                     />
                     <label htmlFor="termWork">Term of the work</label>
+                  </div>
+                  <div className="input-field col s6">
+                    <textarea
+                      id="description"
+                      name="description"
+                      defaultValue={expirience.description}
+                      className="b"
+                      required
+                      minLength={1}
+                    />
+                    <label htmlFor="description">Description</label>
                   </div>
                   <div className="input-field col s6">
                     <input
