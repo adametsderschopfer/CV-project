@@ -30,7 +30,7 @@ export class WorkExpiriencesService {
   async add(work: WorkExpirienceDto): Promise<void> {
     await this._workExp.insert({
       ...work,
-      imglink: !work?.imglink?.length ? '/imgs/img-404.png' : work.imglink,
+      imglink: work.imglink,
     });
   }
 }
