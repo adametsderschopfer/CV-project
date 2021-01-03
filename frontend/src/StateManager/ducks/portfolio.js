@@ -100,7 +100,7 @@ const initialState = {
   books: { data: [], nothing: false },
   projects: { data: [], nothing: false },
   workexps: { data: [], nothing: false },
-  techs: { data: [], nothing: false },
+  techs: { data: {} },
   certs: { data: [], nothing: false },
   contacts: { data: [], nothing: false },
   references: { data: [], nothing: false },
