@@ -11,7 +11,7 @@ export function HeaderMobile() {
         <span uk-icon="icon: grid; ratio: 1.5"></span>
       </button>
 
-      <div uk-drop="pos: bottom; animation: uk-animation-slide-top-small; duration: 1000; mode: click">
+      <div uk-drop="pos: bottom-justify; animation: uk-animation-slide-top-small; duration: 1000; mode: click">
         <div className="uk-card uk-card-body uk-card-default">
           <HeaderNavLinks classes="header--mobile__menu" />
         </div>
