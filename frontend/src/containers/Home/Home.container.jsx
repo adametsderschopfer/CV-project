@@ -1,6 +1,4 @@
-import { useEffect } from "react";
 import { NavLink } from "react-router-dom";
-import anime from "animejs";
 
 import { Button } from "../../components/Button/Button.component";
 import Computer from "../../assets/images/computer";
@@ -8,27 +6,6 @@ import Computer from "../../assets/images/computer";
 import "./Home.scss";
 
 export function Home() {
-  useEffect(() => {
-    anime({
-      targets: ".AnimateDraws",
-
-      scale: {
-        value: 1,
-        duration: 1600,
-        easing: "spring(1, 60, 5, 10)",
-      },
-    });
-
-    anime({
-      targets: ".home--text_section",
-      scale: 1,
-      rotate: "1turn",
-
-      duration: 1600,
-      easing: "spring(1, 60, 5, 10",
-    });
-  }, []);
-
   return (
     <main className="home">
       <section className="home--text_section">
