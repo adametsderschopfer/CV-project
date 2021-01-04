@@ -38,43 +38,21 @@ export function HeaderNavLinks({ classes = "" }) {
           <li>
             <NavLink
               activeClassName="header--menu__item-active"
-              to="/projects"
-              className="header--menu__item header--menu__item--more__item"
-            >
-              Проекты
-            </NavLink>
-          </li>
-
-          <li>
-            <NavLink
-              activeClassName="header--menu__item-active"
-              to="/references"
-              className="header--menu__item header--menu__item--more__item"
-            >
-              References
-            </NavLink>
-          </li>
-
-          <li>
-            <NavLink
-              activeClassName="header--menu__item-active"
               to="/workexp"
               className="header--menu__item header--menu__item--more__item"
             >
               Опыт работы
             </NavLink>
           </li>
-
           <li>
             <NavLink
               activeClassName="header--menu__item-active"
-              to="/certs"
+              to="/projects"
               className="header--menu__item header--menu__item--more__item"
             >
-              Сертификаты
+              Проекты
             </NavLink>
           </li>
-
           <li>
             <NavLink
               activeClassName="header--menu__item-active"
@@ -84,7 +62,15 @@ export function HeaderNavLinks({ classes = "" }) {
               Умения и Технологии
             </NavLink>
           </li>
-
+          <li>
+            <NavLink
+              activeClassName="header--menu__item-active"
+              to="/certs"
+              className="header--menu__item header--menu__item--more__item"
+            >
+              Сертификаты
+            </NavLink>
+          </li>
           <li>
             <NavLink
               activeClassName="header--menu__item-active"
@@ -92,6 +78,15 @@ export function HeaderNavLinks({ classes = "" }) {
               className="header--menu__item header--menu__item--more__item"
             >
               Книги
+            </NavLink>
+          </li>
+          <li>
+            <NavLink
+              activeClassName="header--menu__item-active"
+              to="/references"
+              className="header--menu__item header--menu__item--more__item"
+            >
+              References
             </NavLink>
           </li>
         </ul>
