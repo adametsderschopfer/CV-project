@@ -18,7 +18,10 @@ import { getDataAction, GET_ABOUT } from "../../StateManager/ducks/portfolio";
 import { Loader } from "../../components/Loader/Loader.components";
 
 export function About() {
-  const { loading, about: { data: about } } = useSelector((state) => state.portfolio);
+  const {
+    loading,
+    about: { data: about },
+  } = useSelector((state) => state.portfolio);
   const dispatch = useDispatch();
   // const { width } = useWindowDimensions();
   const age = new Date().getFullYear() - 2002;
@@ -28,7 +31,7 @@ export function About() {
       dispatch(getDataAction(GET_ABOUT));
     }
   }, [about, dispatch]);
-  
+
   useEffect(() => {
     anime({
       targets: ".about__head-center",
@@ -73,20 +76,20 @@ export function About() {
           <div className="about__info--element_value">{age}</div>
           <div className="about__info--element_name">Возраст</div>
         </div>
-        {about && about.projects_count && (
-          <div className="about__info--element">
-            <div className="about__info--element_value">
-              {about.projects_count}
-            </div>
-            <div className="about__info--element_name">Кол-во проектов</div>
-          </div>
-        )}
         {about && about.work_exp && (
           <div className="about__info--element">
             <div className="about__info--element_value">{about.work_exp}</div>
             <div className="about__info--element_name">
               Общий опыт работы в IT
             </div>
+          </div>
+        )}
+        {about && about.projects_count && (
+          <div className="about__info--element">
+            <div className="about__info--element_value">
+              {about.projects_count}
+            </div>
+            <div className="about__info--element_name">Кол-во проектов</div>
           </div>
         )}
       </section>

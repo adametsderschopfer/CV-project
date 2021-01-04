@@ -167,6 +167,14 @@
         top: calc((350px / 4) / 2);
       }
     }
+
+    &__info {
+      &--element {
+        &_name {
+          font-size: 11px;
+        }
+      }
+    }
   }
 }
 
