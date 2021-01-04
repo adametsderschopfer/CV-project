@@ -6,7 +6,7 @@ export default (
     fill="none"
     xmlns="http://www.w3.org/2000/svg"
     className="AnimateDraws"
-    style={{ transform: "scale(0.2)" }}
+    // style={{ transform: "scale(0.2)" }}
   >
     <g clipPath="url(#clip0)">
       <path
