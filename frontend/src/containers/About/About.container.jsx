@@ -26,6 +26,12 @@ export function About() {
   // const { width } = useWindowDimensions();
   const age = new Date().getFullYear() - 2002;
 
+  const _loaderStylesToMinimize = {
+    height: "100px",
+    width: "100px",
+    margin: 0,
+  };
+
   useEffect(() => {
     if (!Object.keys(about).length) {
       dispatch(getDataAction(GET_ABOUT));
@@ -76,22 +82,24 @@ export function About() {
           <div className="about__info--element_value">{age}</div>
           <div className="about__info--element_name">Возраст</div>
         </div>
-        {about && about.work_exp && (
-          <div className="about__info--element">
-            <div className="about__info--element_value">{about.work_exp}</div>
-            <div className="about__info--element_name">
-              Общий опыт работы в IT
+        {(loading && <Loader style={_loaderStylesToMinimize} />) ||
+          (about && about.work_exp && (
+            <div className="about__info--element">
+              <div className="about__info--element_value">{about.work_exp}</div>
+              <div className="about__info--element_name">
+                Общий опыт работы в IT
+              </div>
             </div>
-          </div>
-        )}
-        {about && about.projects_count && (
-          <div className="about__info--element">
-            <div className="about__info--element_value">
-              {about.projects_count}
+          ))}
+        {(loading && <Loader style={_loaderStylesToMinimize} />) ||
+          (about && about.projects_count && (
+            <div className="about__info--element">
+              <div className="about__info--element_value">
+                {about.projects_count}
+              </div>
+              <div className="about__info--element_name">Кол-во проектов</div>
             </div>
-            <div className="about__info--element_name">Кол-во проектов</div>
-          </div>
-        )}
+          ))}
       </section>
 
       <section className="about__content">
