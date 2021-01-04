@@ -7,9 +7,19 @@
     "build:frontend": "npm run build --prefix ./frontend",
     "start:backend": "npm run start:dev --prefix ./backend",
     "build:backend": "npm run build --prefix ./backend",
-    "test:backend": "npm run test --prefix ./backend"
+    "test:backend": "npm run test --prefix ./backend",
+    
+    "prebuild": "rimraf ./build & mkdir build",
+    "build": "npm run build:backend & npm run build:frontend",
+    "postbuild": "ncp ./backend/dist build/ & ncp ./frontend/build ./build/frontend",
+
+    "start": "node ./build/main"
   },
   "dependencies": {
-    "concurrently": "^5.3.0"
+    "concurrently": "^5.3.0",
+    "ncp": "^2.0.0"
+  },
+  "devDependencies": {
+    "rimraf": "^3.0.2"
   }
 }
