@@ -68,23 +68,24 @@
             white-space: break-spaces;
 
             margin-bottom: 25px;
+            width: 100%;
 
             color: #000;
+
+            &-content {
+              word-break: break-all;
+            }
          }
 
-         display: flex;
- 
-         letter-spacing: 0.135em; 
-         font-size: 14px;
-         font-weight: 500;
-         margin-bottom: 15px;
-         font-weight: bold;
- 
-          div {
- 
-           word-break: break-all;
+          display: flex;
+  
+          letter-spacing: 0.135em; 
+          font-size: 14px;
+          font-weight: 500;
+          margin-bottom: 15px;
+          font-weight: bold;
+         
 
-          }
           color: #000 !important;
  
           span { 

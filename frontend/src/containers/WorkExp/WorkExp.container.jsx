@@ -110,10 +110,11 @@ export function WorkExp() {
                       Должность/-ти:&nbsp;
                       <span>{i.position.trim()}</span>
                     </div>
-                    <div className="descr">
-                      <h3>Описание&nbsp;:</h3>
+                    <div className="workexp-content__element--modal-texts__description">
+                      <h3>Подробнее&nbsp;:</h3>
+                      <hr />
                       <div
-                        className="workexp-content__element--modal-texts__description"
+                        className="workexp-content__element--modal-texts__description-content"
                         dangerouslySetInnerHTML={{ __html: i.description }}
                       ></div>
                     </div>
