@@ -1,12 +1,15 @@
-export function Loader() {
+export function Loader({ style }) {
   return (
     <svg
       style={{
         margin: "0 auto",
         shapeRendering: "auto",
+        width: "100%",
+        height: "200px",
+        ...style,
       }}
-      width="200px"
-      height="200px"
+      // width="200px"
+      // height="200px"
       viewBox="0 0 100 100"
       preserveAspectRatio="xMidYMid"
     >
