@@ -8,16 +8,40 @@
     "start:backend": "npm run start:dev --prefix ./backend",
     "build:backend": "npm run build --prefix ./backend",
     "test:backend": "npm run test --prefix ./backend",
-    
-    "prebuild": "rimraf ./build & mkdir build",
+    "prebuild": "rimraf ./build & mkdir build & rimraf ./public & mkdir public",
     "build": "npm run build:backend & npm run build:frontend",
-    "postbuild": "ncp ./backend/dist build/ & ncp ./frontend/build ./build/frontend",
-
+    "postbuild": "ncp ./backend/dist build/ & mkdir build\\frontend & ncp ./frontend/build/index.html ./build/frontend/index.html & ncp ./backend/public ./public & ncp ./frontend/build/static ./public/static & ncp ./frontend/build/libs ./public/libs & ncp ./frontend/build/robots.txt ./public/robots.txt & ncp ./frontend/build/favicon.svg ./public/favicon.svg & ncp ./frontend/build/manifest.json ./public/manifest.json & ncp ./frontend/build/asset-manifest.json ./public/asset-manifest.json",
     "start": "node ./build/main"
   },
   "dependencies": {
+    "@nestjs-modules/mailer": "^1.5.1",
+    "@nestjs/common": "^7.5.1",
+    "@nestjs/core": "^7.5.1",
+    "@nestjs/platform-express": "^7.5.1",
+    "@nestjs/typeorm": "^7.1.5",
+    "@types/app-root-path": "^1.2.4",
+    "@types/cookie-parser": "^1.4.2",
+    "@types/express-session": "^1.17.3",
+    "@types/multer": "^1.4.5",
+    "@types/uuid": "^8.3.0",
+    "app-root-path": "^3.0.0",
+    "bcryptjs": "^2.4.3",
+    "compression": "^1.7.4",
     "concurrently": "^5.3.0",
-    "ncp": "^2.0.0"
+    "cookie-parser": "^1.4.5",
+    "express-react-views": "^0.11.0",
+    "helmet": "^4.2.0",
+    "multer": "^1.4.2",
+    "mysql": "^2.18.1",
+    "ncp": "^2.0.0",
+    "nodemailer": "^6.4.17",
+    "react": "^16.14.0",
+    "react-dom": "^16.14.0",
+    "reflect-metadata": "^0.1.13",
+    "rimraf": "^3.0.2",
+    "rxjs": "^6.6.3",
+    "typeorm": "^0.2.29",
+    "uuid": "^8.3.2"
   },
   "devDependencies": {
     "rimraf": "^3.0.2"
