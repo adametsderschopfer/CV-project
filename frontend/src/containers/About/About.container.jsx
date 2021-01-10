@@ -27,7 +27,7 @@ export function About() {
   const age = new Date().getFullYear() - 2002;
 
   const _loaderStylesToMinimize = {
-    height: "100px",
+    height: "60px",
     width: "100px",
     margin: 0,
   };
@@ -82,24 +82,24 @@ export function About() {
           <div className="about__info--element_value">{age}</div>
           <div className="about__info--element_name">Возраст</div>
         </div>
-        {(loading && <Loader style={_loaderStylesToMinimize} />) ||
-          (about && about.work_exp && (
-            <div className="about__info--element">
-              <div className="about__info--element_value">{about.work_exp}</div>
-              <div className="about__info--element_name">
-                Общий опыт работы в IT
-              </div>
-            </div>
-          ))}
-        {(loading && <Loader style={_loaderStylesToMinimize} />) ||
-          (about && about.projects_count && (
-            <div className="about__info--element">
-              <div className="about__info--element_value">
-                {about.projects_count}
-              </div>
-              <div className="about__info--element_name">Кол-во проектов</div>
-            </div>
-          ))}
+
+        <div className="about__info--element">
+          <div className="about__info--element_value">
+            {(loading && <Loader style={_loaderStylesToMinimize} />) ||
+              (about && about.work_exp && about.work_exp)}
+          </div>
+          <div className="about__info--element_name">
+            Общий опыт работы в IT
+          </div>
+        </div>
+
+        <div className="about__info--element">
+          <div className="about__info--element_value">
+            {(loading && <Loader style={_loaderStylesToMinimize} />) ||
+              (about && about.projects_count && about.projects_count)}
+          </div>
+          <div className="about__info--element_name">Кол-во проектов</div>
+        </div>
       </section>
 
       <section className="about__content">
