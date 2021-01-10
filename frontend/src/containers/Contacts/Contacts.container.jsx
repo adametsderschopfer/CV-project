@@ -18,7 +18,11 @@ export function Contacts() {
   const { formLoading, isError, msg, sended } = useSelector(
     (state) => state.contact
   );
-  const [formData, setFormData] = useState({ email: "", name: "", msg: `` });
+  const [formData, setFormData] = useState({
+    email: "",
+    name: "",
+    content: ``,
+  });
 
   const {
     loading,
@@ -65,9 +69,9 @@ export function Contacts() {
   function formEmailSubmit(e) {
     e.preventDefault();
 
-    const { email, name, msg } = formData;
+    const { email, name, content } = formData;
 
-    if (email && name && msg) {
+    if (email && name && content) {
       if (!sended) if (!isError) dispatch(sendEmail(formData));
     }
   }
@@ -123,6 +127,20 @@ export function Contacts() {
               <div className="uk-margin">
                 <input
                   className={`uk-input ${sended && "uk-button-secondary"}`}
+                  type="phone"
+                  name="phone"
+                  placeholder="Телефон"
+                  onChange={setFormData_i_}
+                  disabled={sended}
+                  required
+                  minLength={3}
+                  maxLength={15}
+                />
+              </div>
+
+              <div className="uk-margin">
+                <input
+                  className={`uk-input ${sended && "uk-button-secondary"}`}
                   type="text"
                   name="name"
                   placeholder="Как к вам обращаться?"
@@ -137,12 +155,13 @@ export function Contacts() {
                 <textarea
                   className={`uk-textarea ${sended && "uk-button-secondary"}`}
                   rows={5}
-                  name="msg"
+                  name="content"
                   placeholder="Сообщение"
                   onChange={setFormData_i_}
                   disabled={sended}
-                  minLength={50}
+                  minLength={30}
                   maxLength={5000}
+                  style={{ resize: "vertical" }}
                   required
                 ></textarea>
               </div>
