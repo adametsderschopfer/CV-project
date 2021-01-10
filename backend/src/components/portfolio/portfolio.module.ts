@@ -2,6 +2,8 @@ import { Module } from '@nestjs/common';
 import { TypeOrmModule } from '@nestjs/typeorm';
 import { MailerModule } from '@nestjs-modules/mailer';
 
+import { mailerConfig } from './../../nodemailer_config';
+
 import { PortfolioController } from './portfolio.controller';
 import { PortfolioService } from './portfolio.service';
 
@@ -36,10 +38,17 @@ import { ViewsService } from 'src/services/views/views.service';
       ViewsEntity,
     ]),
     MailerModule.forRoot({
-      transport: `smtps://${process.env.MAIL_INCOMING_USER}:${process.env.MAIL_INCOMING_PASS}@${process.env.MAIL_INCOMING_HOST}`,
+      transport: {
+        host: mailerConfig.MAIL_INCOMING_HOST,
+        secure: true,
+        auth: {
+          user: mailerConfig.MAIL_INCOMING_USER,
+          pass: mailerConfig.MAIL_INCOMING_PASS,
+        },
+      },
 
       defaults: {
-        from: '<no-reply@adametsofficial@info.dev>',
+        to: mailerConfig.MAIL_INCOMING_USER,
       },
     }),
   ],

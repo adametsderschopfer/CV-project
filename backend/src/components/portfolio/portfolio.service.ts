@@ -12,6 +12,7 @@ import { ReferencesEntity } from './../../Models/Reference.entity';
 import { SkillsEntity } from './../../Models/Skills.entity';
 import { TechnologiesEntity } from './../../Models/Technologies.entity';
 import { MailDto } from '../../Dto/Mail.dto';
+import { arrowShielding } from './../../helpers/arrowShielding';
 
 @Injectable()
 export class PortfolioService {
@@ -83,17 +84,34 @@ export class PortfolioService {
       return false;
     }
 
+    const { name, phone, email, content } = mail;
+
     try {
       await this._mailerService.sendMail({
-        to: mail.email,
-        subject: `New response from ${mail.name || mail.phone || mail.email}`,
+        subject: `Новое письмо от ${name || email}`,
+        text: `
+        Name: ${name} \n
+        Email: ${email} \n
+        Phone: ${phone} \n
+        Message:  \n ${content}
+        `,
         html: `
-          Name: ${mail.name}
-          Email: ${mail.email}
-          Phone: ${mail.phone}
-          Content: ${mail.content}
+          <div style="display: flex;"><h3><b>Name:</b></h3>&nbsp; <p style="margin: auto 0;">${arrowShielding(
+            name,
+          )}</p></div>
+          <div style="display: flex;"><h3><b>Email:</b></h3>&nbsp; <p style="margin: auto 0;">${arrowShielding(
+            email,
+          )}</p></div>
+          <div style="display: flex;"><h3><b>Phone:</b></h3>&nbsp; <p style="margin: auto 0;">${arrowShielding(
+            phone,
+          )}</p></div>
+          <h3><b>Message :</b></h3><div style="white-space: pre;">${arrowShielding(
+            content,
+          )}</div>
         `,
       });
+
+      return true;
     } catch (error) {
       console.log(error);
 

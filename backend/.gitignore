@@ -15,6 +15,7 @@ lerna-debug.log*
 /.env
 
 src/ormconfig.ts
+src/nodemailer_config.ts
 
 # OS
 .DS_Store
